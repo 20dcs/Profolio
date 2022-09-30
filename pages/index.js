@@ -358,7 +358,7 @@ export default function Home({ publications }) {
                 <li className="z-40 block py-2 mt-6 list-none lg:inline-block">
                   <a
                     href={`mailto:danielcranney@gmail.com`}
-                    className={`text-lg ${BColor} btn-lg group`}
+                    className={`text-white ${BColor} btn-lg group`}
                   >
                     Hire me
                   </a>
@@ -538,7 +538,7 @@ export default function Home({ publications }) {
                 <li className="z-50 hidden ml-5 list-none lg:inline-block">
                   <a
                     href={`mailto:danielcranney@gmail.com`}
-                    className={`${BColor} btn-md group`}
+                    className={`text-lg ${BColor} btn-md group`}
                   >
                     Hire me
                   </a>
@@ -636,7 +636,7 @@ export default function Home({ publications }) {
           >
             <div className="flex flex-col">
               <h2 className="text-5xl">About</h2>
-              <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
+              <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
 
               <div className="flex flex-col-reverse items-start w-full md:flex-row">
                 <div className="flex flex-col w-full md:pr-8 md:w-3/5">
@@ -699,8 +699,7 @@ export default function Home({ publications }) {
             ref={skillsRef}
           >
             <h2 className="text-5xl">Skills</h2>
-            <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
-
+            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
             {/* Skills icons */}
             <div className="flex flex-wrap w-full pr-4 mt-8">
               {/* HTML */}
@@ -986,8 +985,7 @@ export default function Home({ publications }) {
           >
             {/* My Work header */}
             <h2 className="text-5xl">My Work</h2>
-            <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
-
+            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
             
             <div className="flex flex-col w-full mb-12">
               {/* Project One */}
@@ -1250,7 +1248,7 @@ export default function Home({ publications }) {
 
             {/* Other Projects header */}
             <h2 className="text-4xl text-center">Other Projects</h2>
-            <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 mx-auto border-0"></hr>
+            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 mx-auto border-0`}></hr>
             <p className="mb-16 text-lg text-center">
               Check out some of the projects I&apos;ve been a part of...
             </p>
@@ -1271,7 +1269,7 @@ export default function Home({ publications }) {
           > */}
             {/* Blog header */}
             {/* <h2 className="text-5xl">Blog</h2>
-            <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
+            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
 
             <BlogList publications={publications} /> */}
           {/* </section> */}
@@ -1283,7 +1281,7 @@ export default function Home({ publications }) {
             ref={contactRef}
           >
             <h2 className="text-5xl">Contact</h2>
-            <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
+            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
 
             <div className="flex flex-col-reverse w-full md:flex-row">
               <div className="w-full mb-4 md:pl-0 md:mb-0">
