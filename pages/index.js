@@ -1,3 +1,5 @@
+import data from '../data.json'
+// const data=JSON.stringify(data.json);
 import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -81,7 +83,13 @@ const projects = [
     repo: "https://github.com/danielcranney/GPS-Embroidery",
     isSiteLive: true,
   },
+
 ];
+
+
+const Color= "text-orange-600";
+const BColor= "bg-orange-600";
+
 
 const getDimensions = (ele) => {
   const { height } = ele.getBoundingClientRect();
@@ -230,7 +238,7 @@ export default function Home({ publications }) {
         }`}
       >
         <Head>
-          <title>Daniel Cranney | Frontend Developer & Designer</title>
+          <title>{data.HomePage.name} | Frontend Developer & Designer</title>
           <meta
             name="description"
             content="The portfolio of frontend developer and designer, Daniel Cranney"
@@ -350,7 +358,7 @@ export default function Home({ publications }) {
                 <li className="z-40 block py-2 mt-6 list-none lg:inline-block">
                   <a
                     href={`mailto:danielcranney@gmail.com`}
-                    className="text-lg btn-brand btn-lg group"
+                    className={`text-lg ${BColor} btn-lg group`}
                   >
                     Hire me
                   </a>
@@ -380,7 +388,7 @@ export default function Home({ publications }) {
                 viewBox="0 0 93.13 75.2"
               >
                 <rect
-                  className="fill-current text-brand"
+                  className={`fill-current ${Color}`}
                   x="-3.43"
                   y="39.29"
                   width="32.19"
@@ -389,7 +397,7 @@ export default function Home({ publications }) {
                   transform="translate(-27.18 21.75) rotate(-45)"
                 />
                 <rect
-                  className="fill-current text-brand"
+                  className={`fill-current ${Color}`}
                   x="-3.43"
                   y="22.74"
                   width="32.19"
@@ -398,7 +406,7 @@ export default function Home({ publications }) {
                   transform="translate(22.89 -1.01) rotate(45)"
                 />
                 <rect
-                  className="fill-current text-brand"
+                  className={`fill-current ${Color}`}
                   x="64.37"
                   y="22.74"
                   width="32.19"
@@ -407,7 +415,7 @@ export default function Home({ publications }) {
                   transform="translate(156.55 -10.59) rotate(135)"
                 />
                 <rect
-                  className="fill-current text-brand"
+                  className={`fill-current ${Color}`}
                   x="64.37"
                   y="39.29"
                   width="32.19"
@@ -416,7 +424,7 @@ export default function Home({ publications }) {
                   transform="translate(106.48 131.47) rotate(-135)"
                 />
                 <rect
-                  className="fill-current text-brand"
+                  className={`fill-current ${Color}`}
                   x="41.93"
                   y="-1.17"
                   width="8.78"
@@ -429,7 +437,7 @@ export default function Home({ publications }) {
             {/* Text */}
             <div className="flex items-center ml-4">
               <p className="text-lg font-semibold font-display tracking-tight dark:text-white text-darker mb-0 transition-all duration-150 ease-in-out">
-                Daniel Cranney
+                {data.Head.NavbarName}
               </p>
             </div>
             {/* Nav */}
@@ -530,7 +538,7 @@ export default function Home({ publications }) {
                 <li className="z-50 hidden ml-5 list-none lg:inline-block">
                   <a
                     href={`mailto:danielcranney@gmail.com`}
-                    className="btn-brand btn-md group"
+                    className={`${BColor} btn-md group`}
                   >
                     Hire me
                   </a>
@@ -589,12 +597,12 @@ export default function Home({ publications }) {
             {/* Main */}
             <div className="container relative flex flex-col items-start justify-center flex-grow px-0 mx-auto md:px-20 lg:px-24 section">
               <div className="w-full">
-                <span className="text-2xl font-semibold text-brand">
+                <span className={`text-2xl font-semibold ${Color}`}>
                   Hello! 👋 My name is
                 </span>
 
                 <h1 className="mb-4 text-5xl md:text-7xl dark:text-white text-dark">
-                  Daniel Cranney
+                  {data.HomePage.name}
                 </h1>
                 <h2 className="mb-4 text-3xl md:text-4xl dark:text-light text-mid">
                   <ReactTypingEffect
@@ -602,19 +610,14 @@ export default function Home({ publications }) {
                     speed={30}
                     eraseSpeed={30}
                     eraseDelay={1500}
-                    text={[
-                      `Frontend Developer`,
-                      `Designer`,
-                      `Teacher`,
-                      `Cat Dad`,
-                    ]}
+                    text={data.HomePage.Position}
                   />
                 </h2>
                 <p className="w-4/5 text-xl md:w-full">
-                  I design and build websites that look good, and work well.
+                  {data.HomePage.description}
                 </p>
                 <button
-                  className="mt-4 btn-brand btn-lg group"
+                  className={`mt-4 ${BColor} btn-lg group`}
                   onClick={() => {
                     scrollTo(myWorkRef.current);
                   }}
@@ -701,6 +704,24 @@ export default function Home({ publications }) {
             {/* Skills icons */}
             <div className="flex flex-wrap w-full pr-4 mt-8">
               {/* HTML */}
+              {/* {data.Skills.map(function (skill, i) {
+                return (
+                <Icon
+                  IconType={`${skill}`}
+                  title="CSS"
+                  columnSizing={"w-1/4 sm:w-1/4 lg:w-1/8"}
+                  width={"w-16 sm:w-20"}
+                  height={"h-16 sm:h-20"}
+                  padding={"p-0"}
+                  flexDirection={"flex-col"}
+                  titleMargins={"mt-4"}
+                  titleSize={"text-sm sm:text-sm"}
+                  marginBottom={"mb-4"}
+                  marginRight={"mr-0"}
+                  textTransform={"normal-case"}
+                  fixedHeight={"h-28"}
+                />);
+              })} */}
               <Icon
                 IconType={Html}
                 title="HTML"
@@ -970,6 +991,22 @@ export default function Home({ publications }) {
             
             <div className="flex flex-col w-full mb-12">
               {/* Project One */}
+              {/* {data.Projects.map(function (project, i) {
+                return (
+                  <FeaturedProjectCard
+                title={`${project.title}`}
+                status={`${project.Status}`}
+                description={`${project.Description}`}
+                float={`right-0`}
+                flexDirection={`flex-col lg:flex-row`}
+                imgWidth={"1366"}
+                imgHeight={"666"}
+                imgSrc={"/projects/reportr.png"}
+                liveLink={"https://reportr.io/"}
+                repoLink={null}
+                />
+                );
+              })} */}
               <FeaturedProjectCard
                 title={"Reportr"}
                 status={"Just launched"}

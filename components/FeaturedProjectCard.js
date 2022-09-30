@@ -7,6 +7,9 @@ import Image from "next/image";
 import GitHub from "./icons/GitHub";
 import ExternalLink from "./icons/ExternalLink";
 
+const Color= "text-orange-600";
+const BColor= "bg-orange-600";
+
 const FeaturedProjectCard = ({
   title,
   status,
@@ -39,11 +42,11 @@ const FeaturedProjectCard = ({
       <div
         className={`grow flex flex-col relative w-full p-3.5 lg:w-5/12 lg:${float} lg:-translate-x-0 gap-y-2`}
       >
-        <p className="mb-0 tracking-wider small-text text-brand dark:text-brand">
+        <p className={`mb-0 tracking-wider small-text ${Color} dark: ${Color}`}>
           {status}
         </p>
         <h3>{title}</h3>
-        <div className="w-1/4 h-1 bg-brand mb-2">&nbsp;</div>
+        <div className={`w-1/4 h-1 ${BColor} mb-2`}>&nbsp;</div>
         <div className="flex flex-wrap mb-2">{stack}</div>
         <p className="text-sm tracking-wide leading-normal">{description}</p>
         <div className="flex">
