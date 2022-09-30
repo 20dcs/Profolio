@@ -581,7 +581,7 @@ export default function Home({ publications }) {
             </div>
           </div>
         </header>
-
+{/* pages started from here */}
         {/* Content Container */}
         <div className="container relative z-30 mx-auto">
           {/* Hero Content */}
@@ -967,7 +967,7 @@ export default function Home({ publications }) {
             <h2 className="text-5xl">My Work</h2>
             <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
 
-            {/* Featured Projects Container */}
+            
             <div className="flex flex-col w-full mb-12">
               {/* Project One */}
               <FeaturedProjectCard
@@ -1227,17 +1227,17 @@ export default function Home({ publications }) {
           </section>
 
           {/* Blog */}
-          <section
+          {/* <section
             className="flex flex-col w-full px-0 md:px-20 lg:px-24 py-28 section"
             id="blog"
             ref={blogRef}
-          >
+          > */}
             {/* Blog header */}
-            <h2 className="text-5xl">Blog</h2>
+            {/* <h2 className="text-5xl">Blog</h2>
             <hr className="bg-brand w-40 h-1.5 mt-4 mb-6 border-0"></hr>
 
-            <BlogList publications={publications} />
-          </section>
+            <BlogList publications={publications} /> */}
+          {/* </section> */}
 
           {/* Contact */}
           <section

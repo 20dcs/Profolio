@@ -1,0 +1,45 @@
+{
+    "Color": "black",
+    "Head":{
+        "title":"Naitik",
+        "NavbarName":"Naitik"
+    },
+    "HomePage": {
+      "name": "Naitik Patel",
+      "Position":["Position 1","Position 2","Position 3","Position 4"],
+      "description": "Next.js"
+    }
+    ,
+    "AboutPage": {
+        "AboutParagraph": " About this page",
+        "ImageLink" : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+    }
+    ,
+    "Skills":["Skill 1","Skill 2","Skill 3","Skill 4","Skill 5","Skill 6"],
+    "Projects":
+        [{
+            "ImageLink": "",
+            "Status": "Completed",
+            "ProjectName" : "Reports",
+            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Description": "Guide",
+            "DemoLink": ""
+        }
+        ,
+        {
+            "ImageLink": "",
+            "Status": "Completed",
+            "ProjectName" : "ColorHub",
+            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Description": "Guide",
+            "DemoLink": ""
+        }
+        ]
+        ,
+    "Contact": {
+        "Email":"naitikpatel2002@gmail.com",
+        "Github":"github.com/naitikp2002",
+        "Twitter":"twitter.com/naitikp2002",
+        "linedIn":"link"
+    }
+  }
