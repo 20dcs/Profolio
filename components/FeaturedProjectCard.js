@@ -3,12 +3,12 @@ import MockupToolbar from "./MockupToolbar";
 import Button from "./Button";
 import SourceButton from "./SourceButton";
 import Image from "next/image";
-
+import data from '../data.json'
 import GitHub from "./icons/GitHub";
 import ExternalLink from "./icons/ExternalLink";
 
-const Color= "text-orange-600";
-const BColor= "bg-orange-600";
+const Color= `text-${data.Color}`;
+const BColor= `bg-${data.Color}`;
 
 const FeaturedProjectCard = ({
   title,

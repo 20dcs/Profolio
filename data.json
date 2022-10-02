@@ -1,11 +1,11 @@
 {
-    "Color": "black",
+    "Color": "orange-600",
     "Head":{
-        "title":"Naitik Patel",
-        "NavbarName":"Naitik Patel"
+        "title":"Harshil Patel | Frontend Developer & Designer",
+        "NavbarName":"Harshil Patel"
     },
     "HomePage": {
-      "name": "Naitik Patel",
+      "name": "Harshil Patel",
       "Position":["Position 1","Position 2","Position 3","Position 4"],
       "description": "I design and build websites that look good, and work well."
     }

@@ -1,10 +1,10 @@
 import React from "react";
-
+import data from "../../data.json"
 const GitHubProfile = ({ marginBottom }) => {
   return (
     <div className={`w-8 h-8 ${marginBottom}`}>
       <a
-        href="https://github.com/danielcranney"
+        href= {`${data.Contact.Github}`}
         target="_blank"
         rel="noreferrer"
       >

@@ -87,8 +87,8 @@ const projects = [
 ];
 
 
-const Color= "text-orange-600";
-const BColor= "bg-orange-600";
+const Color= `text-${data.Color}`;
+const BColor= `bg-${data.Color}`;
 
 
 const getDimensions = (ele) => {
@@ -238,7 +238,7 @@ export default function Home({ publications }) {
         }`}
       >
         <Head>
-          <title>{data.HomePage.name} | Frontend Developer & Designer</title>
+          <title>{data.Head.title} </title>
           <meta
             name="description"
             content="The portfolio of frontend developer and designer, Daniel Cranney"
@@ -321,7 +321,7 @@ export default function Home({ publications }) {
                     My Work
                   </button>
                 </li>
-                <li className="z-50 block py-2 list-none lg:inline-block">
+                {/* <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
                     target="_blank"
@@ -338,7 +338,7 @@ export default function Home({ publications }) {
                   >
                     Blog
                   </button>
-                </li>
+                </li> */}
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
@@ -503,7 +503,7 @@ export default function Home({ publications }) {
                     My Work
                   </button>
                 </li>
-                <li className="z-50 hidden mx-5 list-none lg:inline-block">
+                {/* <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
                     target="_blank"
@@ -519,7 +519,7 @@ export default function Home({ publications }) {
                   >
                     Blog
                   </button>
-                </li>
+                </li> */}
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
@@ -703,11 +703,11 @@ export default function Home({ publications }) {
             {/* Skills icons */}
             <div className="flex flex-wrap w-full pr-4 mt-8">
               {/* HTML */}
-              {/* {data.Skills.map(function (skill, i) {
+              {data.Skills.map(function (skill, i) {
                 return (
                 <Icon
                   IconType={`${skill}`}
-                  title="CSS"
+                  title={`${skill}`}
                   columnSizing={"w-1/4 sm:w-1/4 lg:w-1/8"}
                   width={"w-16 sm:w-20"}
                   height={"h-16 sm:h-20"}
@@ -720,7 +720,7 @@ export default function Home({ publications }) {
                   textTransform={"normal-case"}
                   fixedHeight={"h-28"}
                 />);
-              })} */}
+              })}
               <Icon
                 IconType={Html}
                 title="HTML"
@@ -989,7 +989,7 @@ export default function Home({ publications }) {
             
             <div className="flex flex-col w-full mb-12">
               {/* Project One */}
-              {/* {data.Projects.map(function (project, i) {
+              {data.Projects.map(function (project, i) {
                 return (
                   <FeaturedProjectCard
                 title={`${project.title}`}
@@ -1004,7 +1004,7 @@ export default function Home({ publications }) {
                 repoLink={null}
                 />
                 );
-              })} */}
+              })}
               <FeaturedProjectCard
                 title={"Reportr"}
                 status={"Just launched"}
@@ -1291,8 +1291,8 @@ export default function Home({ publications }) {
                 </p>
                 <p className="text-lg">
                   Email me at{" "}
-                  <Link href="mailto:danielcranney@gmail.com">
-                    <a className="underline-link">danielcranney@gmail.com</a>
+                  <Link href={`mailto:${data.Contact.Email}`}>
+                    <a className="underline-link">{data.Contact.Email}</a>
                   </Link>{" "}
                   and let&apos;s talk about your project!
                 </p>
@@ -1303,7 +1303,7 @@ export default function Home({ publications }) {
           {/* Footer */}
           <footer className="flex flex-col w-full px-0 py-16 md:px-20 lg:px-24 section">
             <hr className="w-full h-1 mb-16 dark:bg-white bg-dark border-0 opacity-10"></hr>
-            <div className="w-8 mb-4">
+            {/* <div className="w-8 mb-4">
               <svg
                 id="abbe8588-8b21-44fd-a605-eb7de7f82941"
                 data-name="Layer 1"
@@ -1328,11 +1328,11 @@ export default function Home({ publications }) {
                   transform="translate(11.31 -10.71) rotate(15)"
                 />
               </svg>
-            </div>
+            </div> */}
 
             <div className="flex flex-col items-start md:flex-row">
               <p className="w-auto mb-4 md:mb-0">
-                &copy; 2022 - Designed and built by Daniel Cranney
+                &copy; 2022 - Designed and built by 20DCS
               </p>
 
               <div className="flex md:hidden">
@@ -1520,7 +1520,7 @@ export default function Home({ publications }) {
                 </svg>
               </button>
               {/* Blog - Diamond 5 */}
-              <button
+              {/* <button
                 className="w-5 h-5 mb-4"
                 onClick={() => {
                   scrollTo(blogRef.current);
@@ -1538,7 +1538,7 @@ export default function Home({ publications }) {
                   viewBox="0
               0 24 24"
                 >
-                  {/* Fill */}
+
                   <path
                     className={`fill-current origin-center transform transition duration-200 ease-in-out group-hover:text-dark dark:group-hover:text-white group-hover:rotate-90 ${
                       visibleSection === "blog"
@@ -1547,7 +1547,7 @@ export default function Home({ publications }) {
                     }`}
                     d="M5.64 5.64h12.73v12.73H5.64z"
                   />
-                  {/* Border */}
+
                   <path
                     className={`fill-current origin-center transform transition duration-500 ease-in-out dark:group-hover:text-white group-hover:text-dark group-hover:rotate-45 group-hover:opacity-100 ${
                       visibleSection === "blog"
@@ -1557,7 +1557,7 @@ export default function Home({ publications }) {
                     d="M12 22.41L1.59 12 12 1.59 22.41 12zM4.41 12L12 19.59 19.59 12 12 4.41z"
                   />
                 </svg>
-              </button>
+              </button> */}
               {/* Contact - Diamond 6 */}
               <button
                 className="w-5 h-5 mb-4"

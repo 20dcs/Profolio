@@ -1,10 +1,11 @@
 import React from "react";
+import data from "../../data.json"
 
 const TwitterProfile = ({ marginBottom }) => {
   return (
     <div className={`w-8 h-8 ${marginBottom}`}>
       <a
-        href="https://twitter.com/danielcranney"
+        href={`${data.Contact.Twitter}`}
         target="_blank"
         rel="noreferrer"
       >
