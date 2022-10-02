@@ -357,7 +357,7 @@ export default function Home({ publications }) {
                 </li>
                 <li className="z-40 block py-2 mt-6 list-none lg:inline-block">
                   <a
-                    href={`mailto:danielcranney@gmail.com`}
+                    href={`mailto:${data.Contact.Email}`}
                     className={`text-white ${BColor} btn-lg group`}
                   >
                     Hire me
@@ -537,8 +537,8 @@ export default function Home({ publications }) {
                 </li>
                 <li className="z-50 hidden ml-5 list-none lg:inline-block">
                   <a
-                    href={`mailto:danielcranney@gmail.com`}
-                    className={`text-lg ${BColor} btn-md group`}
+                    href={`mailto:${data.Contact.Email}`}
+                    className={`text-lg text-white ${BColor} btn-md group`}
                   >
                     Hire me
                   </a>
@@ -703,7 +703,7 @@ export default function Home({ publications }) {
             {/* Skills icons */}
             <div className="flex flex-wrap w-full pr-4 mt-8">
               {/* HTML */}
-              {data.Skills.map(function (skill, i) {
+              {/* {data.Skills.map(function (skill, i) {
                 return (
                 <Icon
                   IconType={`${skill}`}
@@ -720,7 +720,7 @@ export default function Home({ publications }) {
                   textTransform={"normal-case"}
                   fixedHeight={"h-28"}
                 />);
-              })}
+              })} */}
               <Icon
                 IconType={Html}
                 title="HTML"
@@ -1247,18 +1247,18 @@ export default function Home({ publications }) {
             </div>
 
             {/* Other Projects header */}
-            <h2 className="text-4xl text-center">Other Projects</h2>
+            {/* <h2 className="text-4xl text-center">Other Projects</h2>
             <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 mx-auto border-0`}></hr>
             <p className="mb-16 text-lg text-center">
               Check out some of the projects I&apos;ve been a part of...
-            </p>
+            </p> */}
 
             {/* Other Projects Container */}
-            <div className="grid grid-flow-row grid-rows-2 gap-4 grid-col-1 lg:grid-cols-3">
+            {/* <div className="grid grid-flow-row grid-rows-2 gap-4 grid-col-1 lg:grid-cols-3">
               {projects.map(function (project, i) {
                 return <ProjectCard project={project} key={i} />;
               })}
-            </div>
+            </div> */}
           </section>
 
           {/* Blog */}
