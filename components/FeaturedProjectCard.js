@@ -7,8 +7,8 @@ import data from '../data.json'
 import GitHub from "./icons/GitHub";
 import ExternalLink from "./icons/ExternalLink";
 
-const Color= `text-${data.Color}`;
-const BColor= `bg-${data.Color}`;
+const Color= `${data.Color}`;
+const BColor= `${data.Color}`;
 
 const FeaturedProjectCard = ({
   title,
@@ -42,11 +42,12 @@ const FeaturedProjectCard = ({
       <div
         className={`grow flex flex-col relative w-full p-3.5 lg:w-5/12 lg:${float} lg:-translate-x-0 gap-y-2`}
       >
-        <p className={`mb-0 tracking-wider small-text ${Color} dark: ${Color}`}>
+        <p className={`mb-0 tracking-wider small-text`} style={{color:Color}}>
           {status}
         </p>
         <h3>{title}</h3>
-        <div className={`w-1/4 h-1 ${BColor} mb-2`}>&nbsp;</div>
+        <div className={`w-1/4 h-1 mb-2`}
+        style={{backgroundColor:BColor}} >&nbsp;</div>
         <div className="flex flex-wrap mb-2">{stack}</div>
         <p className="text-sm tracking-wide leading-normal">{description}</p>
         <div className="flex">

@@ -42,6 +42,7 @@ module.exports = {
       colors: {
         soft: "#f0f0f0",
         brand: "#7364d0",
+        // orange: "#ea580c",
         brandAlt: "#867dd8",
         light: "#a2a1a6",
         mid: "#282833",

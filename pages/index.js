@@ -87,9 +87,10 @@ const projects = [
 ];
 
 
-const Color= `text-${data.Color}`;
-const BColor= `bg-${data.Color}`;
-
+// let Color= `text-${data.Color}`;
+// let BColor= `bg-${data.Color}`;
+let Color= `${data.Color}`;
+let BColor= `${data.Color}`;
 
 const getDimensions = (ele) => {
   const { height } = ele.getBoundingClientRect();
@@ -358,7 +359,9 @@ export default function Home({ publications }) {
                 <li className="z-40 block py-2 mt-6 list-none lg:inline-block">
                   <a
                     href={`mailto:${data.Contact.Email}`}
-                    className={`text-white ${BColor} btn-lg group`}
+                    className={`text-white btn-lg group`}
+                    style={{ backgroundColor:BColor}}
+
                   >
                     Hire me
                   </a>
@@ -388,7 +391,9 @@ export default function Home({ publications }) {
                 viewBox="0 0 93.13 75.2"
               >
                 <rect
-                  className={`fill-current ${Color}`}
+                  className={`fill-current `}
+                  style={{color:Color}}
+                  // style={{color:{Color}}}
                   x="-3.43"
                   y="39.29"
                   width="32.19"
@@ -397,7 +402,8 @@ export default function Home({ publications }) {
                   transform="translate(-27.18 21.75) rotate(-45)"
                 />
                 <rect
-                  className={`fill-current ${Color}`}
+                  className={`fill-current `}
+                  style={{color:Color}}
                   x="-3.43"
                   y="22.74"
                   width="32.19"
@@ -406,7 +412,8 @@ export default function Home({ publications }) {
                   transform="translate(22.89 -1.01) rotate(45)"
                 />
                 <rect
-                  className={`fill-current ${Color}`}
+                  className={`fill-current `}
+                  style={{color:Color}}
                   x="64.37"
                   y="22.74"
                   width="32.19"
@@ -415,7 +422,8 @@ export default function Home({ publications }) {
                   transform="translate(156.55 -10.59) rotate(135)"
                 />
                 <rect
-                  className={`fill-current ${Color}`}
+                  className={`fill-current `}
+                  style={{color:Color}}
                   x="64.37"
                   y="39.29"
                   width="32.19"
@@ -424,7 +432,8 @@ export default function Home({ publications }) {
                   transform="translate(106.48 131.47) rotate(-135)"
                 />
                 <rect
-                  className={`fill-current ${Color}`}
+                  className={`fill-current `}
+                  style={{color:Color}}
                   x="41.93"
                   y="-1.17"
                   width="8.78"
@@ -538,7 +547,8 @@ export default function Home({ publications }) {
                 <li className="z-50 hidden ml-5 list-none lg:inline-block">
                   <a
                     href={`mailto:${data.Contact.Email}`}
-                    className={`text-lg text-white ${BColor} btn-md group`}
+                    className={`text-lg text-white btn-md group`}
+                    style={{ backgroundColor:BColor}}
                   >
                     Hire me
                   </a>
@@ -597,7 +607,7 @@ export default function Home({ publications }) {
             {/* Main */}
             <div className="container relative flex flex-col items-start justify-center flex-grow px-0 mx-auto md:px-20 lg:px-24 section">
               <div className="w-full">
-                <span className={`text-2xl font-semibold ${Color}`}>
+                <span className={` text-2xl font-semibold `} style={{color:Color}}>
                   Hello! 👋 My name is
                 </span>
 
@@ -617,7 +627,8 @@ export default function Home({ publications }) {
                   {data.HomePage.description}
                 </p>
                 <button
-                  className={`mt-4 ${BColor} btn-lg group`}
+                  className={`mt-4 btn-lg group`}
+                  style={{ backgroundColor:BColor}}
                   onClick={() => {
                     scrollTo(myWorkRef.current);
                   }}
@@ -636,7 +647,7 @@ export default function Home({ publications }) {
           >
             <div className="flex flex-col">
               <h2 className="text-5xl">About</h2>
-              <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
+              <hr className={`w-40 h-1.5 mt-4 mb-6 border-0`} style={{backgroundColor:Color}}></hr>
 
               <div className="flex flex-col-reverse items-start w-full md:flex-row">
                 <div className="flex flex-col w-full md:pr-8 md:w-3/5">
@@ -699,7 +710,7 @@ export default function Home({ publications }) {
             ref={skillsRef}
           >
             <h2 className="text-5xl">Skills</h2>
-            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
+            <hr className={` w-40 h-1.5 mt-4 mb-6 border-0`} style={{backgroundColor:Color}}></hr>
             {/* Skills icons */}
             <div className="flex flex-wrap w-full pr-4 mt-8">
               {/* HTML */}
@@ -985,7 +996,7 @@ export default function Home({ publications }) {
           >
             {/* My Work header */}
             <h2 className="text-5xl">My Work</h2>
-            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
+            <hr className={` w-40 h-1.5 mt-4 mb-6 border-0`} style={{backgroundColor:Color}}></hr>
             
             <div className="flex flex-col w-full mb-12">
               {/* Project One */}
@@ -1281,7 +1292,7 @@ export default function Home({ publications }) {
             ref={contactRef}
           >
             <h2 className="text-5xl">Contact</h2>
-            <hr className={`${BColor} w-40 h-1.5 mt-4 mb-6 border-0`}></hr>
+            <hr className={` w-40 h-1.5 mt-4 mb-6 border-0`} style={{backgroundColor:Color}}></hr>
 
             <div className="flex flex-col-reverse w-full md:flex-row">
               <div className="w-full mb-4 md:pl-0 md:mb-0">

@@ -1,11 +1,11 @@
 {
-    "Color": "orange-600",
+    "Color": "#e11d48",
     "Head":{
-        "title":"Harshil Patel | Frontend Developer & Designer",
-        "NavbarName":"Harshil Patel"
+        "title":"Jhon Doe | Frontend Developer & Designer",
+        "NavbarName":"Jhon Doe"
     },
     "HomePage": {
-      "name": "Harshil Patel",
+      "name": "Jhon Doe",
       "Position":["Position 1","Position 2","Position 3","Position 4"],
       "description": "I design and build websites that look good, and work well."
     }
