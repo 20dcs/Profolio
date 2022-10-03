@@ -28,9 +28,19 @@
         }
         ,
         {
-            "title":"About",
-            "ImageLink": "",
+            "title":"TruthTable Generator",
+            "ImageLink": "https://user-images.githubusercontent.com/36930635/141287110-ce711d51-f9ca-42fd-8a25-f8e037d3c41b.png",
             "Status": "Completed",
+            "ProjectName" : "ColorHub",
+            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Description": "A responsive Web application which generates Truth table of Boolean expressions.",
+            "DemoLink": ""
+        }
+        ,
+        {
+            "title":"Meme Generator",
+            "ImageLink": "",
+            "Status": "Working On it",
             "ProjectName" : "ColorHub",
             "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
             "Description": "Guide",
@@ -38,7 +48,7 @@
         }
         ]
         ,
-    "Contact": {
+        "Contact": {
         "Email":"naitikpatel2002@gmail.com",
         "Github":"github.com/naitikp2002",
         "Twitter":"twitter.com/naitikp2002",

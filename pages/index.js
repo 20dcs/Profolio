@@ -1002,6 +1002,8 @@ export default function Home({ publications }) {
               {/* Project One */}
               {data.Projects.map(function (project, i) {
                 return (
+                  <>
+                  { i%2==0 ?
                   <FeaturedProjectCard
                 title={`${project.title}`}
                 status={`${project.Status}`}
@@ -1013,10 +1015,23 @@ export default function Home({ publications }) {
                 imgSrc={"/projects/reportr.png"}
                 liveLink={"https://reportr.io/"}
                 repoLink={null}
-                />
+                /> 
+                :
+                <FeaturedProjectCard
+                title={`${project.title}`}
+                status={`${project.Status}`}
+                description={`${project.Description}`}
+                float={`right-0`}
+                flexDirection={`flex-col lg:flex-row-reverse`}
+                imgWidth={"1366"}
+                imgHeight={"666"}
+                imgSrc={"/projects/colorhub.png"}
+                liveLink={"https://colorhub.app/"}
+                repoLink={null}/>}
+                </>
                 );
               })}
-              <FeaturedProjectCard
+              {/* <FeaturedProjectCard
                 title={"Reportr"}
                 status={"Just launched"}
                 description={`Write reports for your students in 60 seconds or less`}
@@ -1094,8 +1109,13 @@ export default function Home({ publications }) {
                     />
                   </>
                 }
-              />
+              /> */}
+
+
               {/* Project Two */}
+
+
+{/*               
               <FeaturedProjectCard
                 title={"ColorHub"}
                 status={"Currently working on"}
@@ -1174,8 +1194,14 @@ export default function Home({ publications }) {
                     />
                   </>
                 }
-              />
+              /> */}
+
+
+
               {/* Project Three */}
+
+
+{/*               
               <FeaturedProjectCard
                 title={"ProfileMe.dev"}
                 status={"Just launched"}
@@ -1254,7 +1280,7 @@ export default function Home({ publications }) {
                     />
                   </>
                 }
-              />
+              /> */}
             </div>
 
             {/* Other Projects header */}
