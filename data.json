@@ -1,5 +1,5 @@
 {
-    "Color": "#e11d48",
+    "Color": "#00FFFF",
     "Head":{
         "title":"Jhon Doe | Frontend Developer & Designer",
         "NavbarName":"Jhon Doe"
@@ -11,8 +11,8 @@
     }
     ,
     "AboutPage": {
-        "AboutParagraph": " About this page",
-        "ImageLink" : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        "AboutParagraph": "I am a frontend developer and designer with a passion for creating beautiful and user-friendly websites and applications. I have a strong background in both web development and graphic design, and I enjoy using my skills to create stunning websites and interfaces that are easy to use and navigate.In my previous work, I have designed and developed websites for a variety of clients, including small businesses, non-profit organizations, and large corporations. I have also created mobile applications and responsive websites that are compatible with a variety of devices and screen sizes. My goal is always to create websites and applications that are visually appealing and user-friendly, and I believe that my skills and experience make me an excellent frontend developer and designer.",
+        "ImageLink" : "https://cdn.vectorstock.com/i/1000x1000/23/81/default-avatar-profile-icon-vector-18942381.webp"
     }
     ,
     "Skills":["Html","Bootstrap","Figma"],
@@ -22,7 +22,7 @@
             "ImageLink": "",
             "Status": "Completed",
             "ProjectName" : "Reports",
-            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Technologies": ["HTML","TAILWIND","REACT","NEXT"],
             "Description": "Write reports for your students in 60 seconds or less",
             "DemoLink": ""
         }
@@ -32,7 +32,7 @@
             "ImageLink": "https://user-images.githubusercontent.com/36930635/141287110-ce711d51-f9ca-42fd-8a25-f8e037d3c41b.png",
             "Status": "Completed",
             "ProjectName" : "ColorHub",
-            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Technologies": ["HTML","TAILWIND","REACT","NEXT"],
             "Description": "A responsive Web application which generates Truth table of Boolean expressions.",
             "DemoLink": ""
         }
@@ -42,16 +42,16 @@
             "ImageLink": "",
             "Status": "Working On it",
             "ProjectName" : "ColorHub",
-            "Technologies": ["HTML", "TAILWIND", "REACT","NEXT"],
+            "Technologies": ["HTML","REACT","NEXT"],
             "Description": "Guide",
             "DemoLink": ""
         }
         ]
         ,
         "Contact": {
-        "Email":"naitikpatel2002@gmail.com",
-        "Github":"github.com/naitikp2002",
-        "Twitter":"twitter.com/naitikp2002",
-        "linedIn":"link"
+        "Email":"johndoe@gmail.com",
+        "Github":"https://github.com/johndoe",
+        "Twitter":"https://twitter.com/johndoe",
+        "linkedIn":"https://linkedin.com/"
     }
 }

@@ -651,44 +651,7 @@ export default function Home({ publications }) {
 
               <div className="flex flex-col-reverse items-start w-full md:flex-row">
                 <div className="flex flex-col w-full md:pr-8 md:w-3/5">
-                  <p className="text-lg">
-                    Hello! I&apos;m Dan and I&apos;m a frontend developer,
-                    designer and teacher from Bristol, England.
-                  </p>
-                  <p className="text-lg">
-                    After building my first website aged thirteen, I knew I
-                    wanted to work with computers and technology, and I&apos;ve
-                    never looked back.
-                  </p>
-                  <p className="text-lg">
-                    After graduating University with a Media degree, I began
-                    freelancing as a designer, creating graphics, video content
-                    and websites for small businesses, using content management
-                    systems like Wordpress, Joomla and Squarespace.
-                  </p>
-                  <p className="text-lg">
-                    In recent years, I&apos;ve been focused on programming,
-                    building a solid frontend stack and creating exciting
-                    projects that solve real-world problems.
-                  </p>
-                  <p className="text-lg">
-                    Alongside my design and development work, I run a BA Media
-                    Production degree course and a corporate video production
-                    company called{" "}
-                    <a
-                      href="http://www.wearespotlight.co.uk"
-                      target="_blank"
-                      className="underline-link"
-                      rel="noreferrer"
-                    >
-                      Spotlight Media
-                    </a>
-                    , so I like to keep busy!
-                  </p>
-                  <p className="text-lg">
-                    Take a look at my work below to see what I&apos;m working
-                    on, and get in touch if you&apos;d like to work together!
-                  </p>
+                  <p className="text-lg">{data?.AboutPage?.AboutParagraph}</p>
                 </div>
                 <div className="flex w-full h-full mb-4 md:pl-8 md:w-2/5 md:mb-0">
                   <Image
@@ -1002,12 +965,14 @@ export default function Home({ publications }) {
               {/* Project One */}
               {data.Projects.map(function (project, i) {
                 return (
-                  <>
+                  <div key={i}>
                   { i%2==0 ?
                   <FeaturedProjectCard
+                  key={i}
                 title={`${project.title}`}
                 status={`${project.Status}`}
                 description={`${project.Description}`}
+                stack={project.Technologies}
                 float={`right-0`}
                 flexDirection={`flex-col lg:flex-row`}
                 imgWidth={"1366"}
@@ -1018,9 +983,11 @@ export default function Home({ publications }) {
                 /> 
                 :
                 <FeaturedProjectCard
+                key={i}
                 title={`${project.title}`}
                 status={`${project.Status}`}
                 description={`${project.Description}`}
+                stack={project.Technologies}
                 float={`right-0`}
                 flexDirection={`flex-col lg:flex-row-reverse`}
                 imgWidth={"1366"}
@@ -1028,7 +995,7 @@ export default function Home({ publications }) {
                 imgSrc={"/projects/colorhub.png"}
                 liveLink={"https://colorhub.app/"}
                 repoLink={null}/>}
-                </>
+                </div>
                 );
               })}
               {/* <FeaturedProjectCard

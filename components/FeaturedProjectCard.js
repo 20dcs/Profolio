@@ -48,7 +48,14 @@ const FeaturedProjectCard = ({
         <h3>{title}</h3>
         <div className={`w-1/4 h-1 mb-2`}
         style={{backgroundColor:BColor}} >&nbsp;</div>
-        <div className="flex flex-wrap mb-2">{stack}</div>
+        <div className="flex flex-wrap mb-2">
+      {stack?.map((stackItem, i) => 
+        <p key={i}
+          className={`ml-2 text-sm sm:text-sm font-semibold tracking-wide opacity-100 normal-case text-center`}
+        >
+          {`${stackItem}`}
+        </p>
+      )}</div>
         <p className="text-sm tracking-wide leading-normal">{description}</p>
         <div className="flex">
           {liveLink !== null ? (
