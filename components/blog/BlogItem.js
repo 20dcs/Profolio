@@ -25,6 +25,7 @@ export default function BlogItem({ post }) {
           layout="responsive"
           width={1080}
           height={567}
+          alt={'post cover image'}
         />
       </div>
       <div className="flex flex-col px-2 gap-y-1.5">

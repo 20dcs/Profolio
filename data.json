@@ -19,7 +19,7 @@
     "Projects":
         [{
             "title":"Reports",
-            "ImageLink": "",
+            "ImageLink": "/",
             "Status": "Completed",
             "ProjectName" : "Reports",
             "Technologies": ["HTML","TAILWIND","REACT","NEXT"],
@@ -29,7 +29,7 @@
         ,
         {
             "title":"TruthTable Generator",
-            "ImageLink": "https://user-images.githubusercontent.com/36930635/141287110-ce711d51-f9ca-42fd-8a25-f8e037d3c41b.png",
+            "ImageLink": "/",
             "Status": "Completed",
             "ProjectName" : "ColorHub",
             "Technologies": ["HTML","TAILWIND","REACT","NEXT"],
@@ -39,7 +39,7 @@
         ,
         {
             "title":"Meme Generator",
-            "ImageLink": "",
+            "ImageLink": "/",
             "Status": "Working On it",
             "ProjectName" : "ColorHub",
             "Technologies": ["HTML","REACT","NEXT"],
