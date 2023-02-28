@@ -1,7 +1,6 @@
 import React from 'react';
 import MockupToolbar from './MockupToolbar';
 import Button from './Button';
-import SourceButton from './SourceButton';
 import Image from 'next/image';
 import data from '../data.json';
 import GitHub from './icons/GitHub';

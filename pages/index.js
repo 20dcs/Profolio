@@ -175,33 +175,34 @@ export default function Home({ publications }) {
   return (
     <div className='bg-white dark:bg-darker transition-all duration-150 ease-in-out'>
       <div
-        className={`relative w-full dark:bg-dark/20 bg-light bg-opacity-10 overflow-auto min-h-screen transition-all duration-150 ease-in-out ${
-          navbarOpen ? 'overflow-hidden' : 'overflow-auto'
-        }`}>
+        className={`relative w-full dark:bg-dark/20 bg-light bg-opacity-10 overflow-auto min-h-screen transition-all duration-150 ease-in-out ${navbarOpen ? 'overflow-hidden' : 'overflow-auto'
+          }`}>
         <Head>
           <title>{data.Head.title} </title>
           <meta name='description' content={data.Head.NavbarName} />
           <link rel='icon' href='/favicon.ico' />
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="manifest" href="/site.webmanifest"></link>
         </Head>
 
         {/* Full-screen Menu */}
         <div
-          className={`fixed w-full z-50 h-screen pt-24 bg-white dark:bg-darker bg-opacity-100 transform delay-100 transition-all duration-150 ${
-            navbarOpen
-              ? 'opacity-100 translate-x-0'
-              : 'opacity-0 -translate-x-full'
-          }`}>
+          className={`fixed w-full z-50 h-screen pt-24 bg-white dark:bg-darker bg-opacity-100 transform delay-100 transition-all duration-150 ${navbarOpen
+            ? 'opacity-100 translate-x-0'
+            : 'opacity-0 -translate-x-full'
+            }`}>
           <div className='container relative mx-auto'>
             <nav className='block ml-auto'>
               <ul className='z-50 flex flex-col items-start'>
                 <li className='z-50 block py-2 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'home'
-                        ? 'selected delay-200'
-                        : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'home'
+                      ? 'selected delay-200'
+                      : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(homeRef.current);
@@ -212,11 +213,10 @@ export default function Home({ publications }) {
                 <li className='z-50 block py-2 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'about'
-                        ? 'selected delay-150'
-                        : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'about'
+                      ? 'selected delay-150'
+                      : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(aboutRef.current);
@@ -227,11 +227,10 @@ export default function Home({ publications }) {
                 <li className='z-50 block py-2 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'skills'
-                        ? 'selected delay-150'
-                        : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'skills'
+                      ? 'selected delay-150'
+                      : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(skillsRef.current);
@@ -242,11 +241,10 @@ export default function Home({ publications }) {
                 <li className='z-50 block py-2 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'my-work'
-                        ? 'selected delay-150'
-                        : 'text-mid/50  hover:text-mid border-b-2 border-transparent'
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'my-work'
+                      ? 'selected delay-150'
+                      : 'text-mid/50  hover:text-mid border-b-2 border-transparent'
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(myWorkRef.current);
@@ -275,11 +273,10 @@ export default function Home({ publications }) {
                 <li className='z-50 block py-2 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'contact'
-                        ? 'selected delay-150'
-                        : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'contact'
+                      ? 'selected delay-150'
+                      : 'text-mid/50 hover:text-mid border-b-2 border-transparent'
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(contactRef.current);
@@ -292,7 +289,7 @@ export default function Home({ publications }) {
                     href={`mailto:${data.Contact.Email}`}
                     className={`text-white btn-lg group`}
                     style={{ backgroundColor: BColor }}>
-                    Hire me
+                    Contact me
                   </a>
                 </li>
               </ul>
@@ -302,77 +299,16 @@ export default function Home({ publications }) {
 
         {/* Header and Nav */}
         <header
-          className={`header top-0 mx-auto flex items-center py-6 z-50 fixed w-full transition-all duration-150 h-20 ${
-            scrolling && !navbarOpen
-              ? 'dark:bg-dark bg-white'
-              : 'bg-transparent'
-          }`}
+          className={`header top-0 mx-auto flex items-center py-6 z-50 fixed w-full transition-all duration-150 h-20 ${scrolling && !navbarOpen
+            ? 'dark:bg-dark bg-white'
+            : 'bg-transparent'
+            }`}
           ref={headerRef}>
           {/* Logo and Nav container */}
           <div className='container relative flex items-center mx-auto'>
-            {/* Logo */}
-            <div className='z-50 w-9 sm:w-12 h-9 sm:h-12 flex items-center'>
-              <svg
-                id='b613d120-e911-4f71-b7bc-d9b9e1bbdc6f'
-                data-name='Layer 1'
-                xmlns='http://www.w3.org/2000/svg'
-                viewBox='0 0 93.13 75.2'>
-                <rect
-                  className={`fill-current `}
-                  style={{ color: Color }}
-                  // style={{color:{Color}}}
-                  x='-3.43'
-                  y='39.29'
-                  width='32.19'
-                  height='8.78'
-                  rx='4.39'
-                  transform='translate(-27.18 21.75) rotate(-45)'
-                />
-                <rect
-                  className={`fill-current `}
-                  style={{ color: Color }}
-                  x='-3.43'
-                  y='22.74'
-                  width='32.19'
-                  height='8.78'
-                  rx='4.39'
-                  transform='translate(22.89 -1.01) rotate(45)'
-                />
-                <rect
-                  className={`fill-current `}
-                  style={{ color: Color }}
-                  x='64.37'
-                  y='22.74'
-                  width='32.19'
-                  height='8.78'
-                  rx='4.39'
-                  transform='translate(156.55 -10.59) rotate(135)'
-                />
-                <rect
-                  className={`fill-current `}
-                  style={{ color: Color }}
-                  x='64.37'
-                  y='39.29'
-                  width='32.19'
-                  height='8.78'
-                  rx='4.39'
-                  transform='translate(106.48 131.47) rotate(-135)'
-                />
-                <rect
-                  className={`fill-current `}
-                  style={{ color: Color }}
-                  x='41.93'
-                  y='-1.17'
-                  width='8.78'
-                  height='77.54'
-                  rx='4.39'
-                  transform='translate(11.31 -10.71) rotate(15)'
-                />
-              </svg>
-            </div>
             {/* Text */}
             <div className='flex items-center ml-4'>
-              <p className='text-lg font-semibold font-display tracking-tight dark:text-white text-darker mb-0 transition-all duration-150 ease-in-out'>
+              <p className='text-xl font-semibold font-display tracking-tight dark:text-white text-darker mb-0 transition-all duration-150 ease-in-out'>
                 {data.Head.NavbarName}
               </p>
             </div>
@@ -382,11 +318,10 @@ export default function Home({ publications }) {
                 <li className='z-50 hidden mx-5 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'home'
-                        ? 'selected delay-150'
-                        : 'opacity-50 hover:opacity-100 dark:text-white text-dark'
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'home'
+                      ? 'selected delay-150'
+                      : 'opacity-50 hover:opacity-100 dark:text-white text-dark'
+                      }`}
                     onClick={() => {
                       scrollTo(homeRef.current);
                     }}>
@@ -396,11 +331,10 @@ export default function Home({ publications }) {
                 <li className='z-50 hidden mx-5 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'about'
-                        ? 'selected delay-150'
-                        : 'opacity-50 hover:opacity-100 border-b-2 border-transparent  dark:text-white text-dark'
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'about'
+                      ? 'selected delay-150'
+                      : 'opacity-50 hover:opacity-100 border-b-2 border-transparent  dark:text-white text-dark'
+                      }`}
                     onClick={() => {
                       scrollTo(aboutRef.current);
                     }}>
@@ -410,11 +344,10 @@ export default function Home({ publications }) {
                 <li className='z-50 hidden mx-5 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'skills'
-                        ? 'selected delay-150'
-                        : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'skills'
+                      ? 'selected delay-150'
+                      : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
+                      }`}
                     onClick={() => {
                       scrollTo(skillsRef.current);
                     }}>
@@ -424,11 +357,10 @@ export default function Home({ publications }) {
                 <li className='z-50 hidden mx-5 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'my-work'
-                        ? 'selected delay-150'
-                        : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'my-work'
+                      ? 'selected delay-150'
+                      : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
+                      }`}
                     onClick={() => {
                       scrollTo(myWorkRef.current);
                     }}>
@@ -455,11 +387,10 @@ export default function Home({ publications }) {
                 <li className='z-50 hidden mx-5 list-none lg:inline-block'>
                   <button
                     href='#'
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === 'contact'
-                        ? 'selected delay-150'
-                        : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === 'contact'
+                      ? 'selected delay-150'
+                      : 'opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark'
+                      }`}
                     onClick={() => {
                       scrollTo(contactRef.current);
                     }}>
@@ -471,33 +402,29 @@ export default function Home({ publications }) {
                     href={`mailto:${data.Contact.Email}`}
                     className={`text-lg text-white btn-md group`}
                     style={{ backgroundColor: BColor }}>
-                    Hire me
+                    Contact me
                   </a>
                 </li>
                 <li className='z-50 inline-block ml-5 list-none lg:hidden'>
                   <button
-                    className={`relative w-10 h-10 text-dark/50 dark:text-white ${
-                      navbarOpen
-                        ? ''
-                        : 'dark:opacity-50 dark:group-hover:opacity-100 text-mid/50 group-hover:text-dark'
-                    } focus:outline-none`}
+                    className={`relative w-10 h-10 text-dark/50 dark:text-white ${navbarOpen
+                      ? ''
+                      : 'dark:opacity-50 dark:group-hover:opacity-100 text-mid/50 group-hover:text-dark'
+                      } focus:outline-none`}
                     onClick={() => setNavbarOpen(!navbarOpen)}>
                     <div className='absolute block w-5 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2'>
                       <span
                         aria-hidden='true'
-                        className={`block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? 'rotate-45' : '-translate-y-1.5'
-                        }`}></span>
+                        className={`block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? 'rotate-45' : '-translate-y-1.5'
+                          }`}></span>
                       <span
                         aria-hidden='true'
-                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? 'opacity-0' : 'opacity-100'
-                        }`}></span>
+                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? 'opacity-0' : 'opacity-100'
+                          }`}></span>
                       <span
                         aria-hidden='true'
-                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? '-rotate-45' : 'translate-y-1.5'
-                        }`}></span>
+                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? '-rotate-45' : 'translate-y-1.5'
+                          }`}></span>
                     </div>
                   </button>
                 </li>
@@ -596,24 +523,6 @@ export default function Home({ publications }) {
             {/* Skills icons */}
             <div className='flex flex-wrap w-full pr-4 mt-8'>
               {/* HTML */}
-              {/* {data.Skills.map(function (skill, i) {
-                return (
-                <Icon
-                  IconType={`${skill}`}
-                  title={`${skill}`}
-                  columnSizing={"w-1/4 sm:w-1/4 lg:w-1/8"}
-                  width={"w-16 sm:w-20"}
-                  height={"h-16 sm:h-20"}
-                  padding={"p-0"}
-                  flexDirection={"flex-col"}
-                  titleMargins={"mt-4"}
-                  titleSize={"text-sm sm:text-sm"}
-                  marginBottom={"mb-4"}
-                  marginRight={"mr-0"}
-                  textTransform={"normal-case"}
-                  fixedHeight={"h-28"}
-                />);
-              })} */}
               <Icon
                 IconType={Html}
                 title='HTML'
@@ -920,168 +829,6 @@ export default function Home({ publications }) {
                   </div>
                 );
               })}
-              {/* <FeaturedProjectCard
-                title={"Reportr"}
-                status={"Just launched"}
-                description={`Write reports for your students in 60 seconds or less`}
-                float={`right-0`}
-                flexDirection={`flex-col lg:flex-row`}
-                imgWidth={"1366"}
-                imgHeight={"666"}
-                imgSrc={"/projects/reportr.png"}
-                liveLink={"https://reportr.io/"}
-                repoLink={null}
-                stack={
-                  <>
-                    <Icon
-                      IconType={Html}
-                      title="HTML"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={Tailwind}
-                      title="Tailwind"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={ReactJs}
-                      title="React"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={NextJs}
-                      title="Next"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-                  </>
-                }
-              /> */}
-
-              {/* Project Two */}
-
-              {/*               
-              <FeaturedProjectCard
-                title={"ColorHub"}
-                status={"Currently working on"}
-                description={`Create a custom colour palette for your next project. Preview your palette on different layouts and then export the CSS, SCSS or Tailwind code.`}
-                float={`right-0`}
-                flexDirection={`flex-col lg:flex-row-reverse`}
-                imgWidth={"1366"}
-                imgHeight={"666"}
-                imgSrc={"/projects/colorhub.png"}
-                liveLink={"https://colorhub.app/"}
-                repoLink={null}
-                stack={
-                  <>
-                    <Icon
-                      IconType={Html}
-                      title="HTML"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={Tailwind}
-                      title="Tailwind"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={ReactJs}
-                      title="React"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-
-                    <Icon
-                      IconType={NextJs}
-                      title="Next"
-                      columnSizing={"w-auto"}
-                      width={"w-6"}
-                      height={"h-6"}
-                      flexDirection={"flex-row"}
-                      padding={"p-0"}
-                      titleMargins={"my-0 ml-1"}
-                      titleSize={"text-sm"}
-                      marginBottom={"mb-4"}
-                      marginRight={"mr-3"}
-                      textTransform={"uppercase"}
-                      fixedHeight={"h-auto"}
-                    />
-                  </>
-                }
-              /> */}
             </div>
 
             {/* Other Projects header */}
@@ -1132,7 +879,7 @@ export default function Home({ publications }) {
                   Email me at{' '}
                   <Link href={`mailto:${data.Contact.Email}`}>
                     <a className='underline-link'>{data.Contact.Email}</a>
-                  </Link>{' '}
+                  </Link>
                   and let&apos;s talk about your project!
                 </p>
               </div>
@@ -1142,49 +889,14 @@ export default function Home({ publications }) {
           {/* Footer */}
           <footer className='flex flex-col w-full px-0 py-16 md:px-20 lg:px-24 section'>
             <hr className='w-full h-1 mb-16 dark:bg-white bg-dark border-0 opacity-10'></hr>
-            {/* <div className="w-8 mb-4">
-              <svg
-                id="abbe8588-8b21-44fd-a605-eb7de7f82941"
-                data-name="Layer 1"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 93.13 75.2"
-              >
-                <path
-                  className="dark:opacity-50 dark:fill-current dark:text-light fill-brand"
-                  d="M24.05,38.51,7.5,55.06a4.39,4.39,0,1,1-6.21-6.21L14.74,35.41,1.29,22A4.39,4.39,0,0,1,7.5,15.75L24.05,32.3A4.4,4.4,0,0,1,24.05,38.51Z"
-                />
-                <path
-                  className="dark:opacity-50 dark:fill-current dark:text-light fill-brand"
-                  d="M91.85,55.06a4.38,4.38,0,0,1-6.21,0L69.09,38.51a4.4,4.4,0,0,1,0-6.21L85.64,15.75A4.39,4.39,0,0,1,91.85,22L78.41,35.41,91.85,48.85A4.4,4.4,0,0,1,91.85,55.06Z"
-                />
-                <rect
-                  className="dark:opacity-50 dark:fill-current dark:text-light fill-brand"
-                  x="41.93"
-                  y="-1.17"
-                  width="8.78"
-                  height="77.54"
-                  rx="4.39"
-                  transform="translate(11.31 -10.71) rotate(15)"
-                />
-              </svg>
-            </div> */}
 
             <div className='flex flex-col items-start md:flex-row'>
-              <p className='w-auto mb-4 md:mb-0'>
-                &copy; 2022 - Designed and built by 20DCS
-              </p>
-
-              <div className='flex md:hidden'>
-                <span className='mr-2'>
-                  <GitHubProfile marginBottom={'mb-0'} />
-                </span>
-                <span className='mr-2'>
-                  <TwitterProfile marginBottom={'mb-0'} />
-                </span>
-                <span className='mr-2'>
-                  <LinkedInProfile marginBottom={'mb-0'} />
-                </span>
-              </div>
+              <Link
+                passHref
+                href={`https://github.com/20dcs/Profolio`}
+                className='w-auto mb-4 md:mb-0'>
+                &copy; ProFolio
+              </Link>
             </div>
           </footer>
         </div>
