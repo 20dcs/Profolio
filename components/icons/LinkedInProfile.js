@@ -5,7 +5,7 @@ const LinkedInProfile = ({ marginBottom }) => {
   return (
     <div className={`w-8 h-8 ${marginBottom}`}>
       <a
-        href={`${data.Contact.linkedIn}`}
+        href={`${data.Contact.LinkedIn}`}
         target="_blank"
         rel="noreferrer"
       >
