@@ -605,8 +605,8 @@ export default function Home({ publications }) {
                 </p>
                 <p className='text-lg'>
                   Email me at{' '}
-                  <Link href={`mailto:${data.Contact.Email}`}>
-                    <a className='underline-link'>{data.Contact.Email}</a>
+                  <Link href={`mailto:${data.Contact.Email}`} className='underline-link'>
+                    {data.Contact.Email}
                   </Link>
                   and let&apos;s talk about your project!
                 </p>
