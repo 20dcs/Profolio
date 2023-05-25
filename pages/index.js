@@ -13,6 +13,7 @@ import LinkedInProfile from "../components/icons/LinkedInProfile";
 import FeaturedProjectCard from "../components/FeaturedProjectCard";
 import { FaKaggle } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import { AiOutlineLink } from "react-icons/ai";
 // Blog Components
 // import BlogList from '../components/blog/BlogList';
 // import BlogItem from '../components/blog/BlogItem';
@@ -117,6 +118,14 @@ export default function Home({ publications }) {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleLinkClick = (link) => {
+    if (link.includes("@")) {
+      window.location.href = `mailto:${link}`;
+    } else {
+      window.open(link, "_blank");
+    }
+  };
 
   const currentTheme = theme === "system" ? systemTheme : theme;
 
@@ -680,13 +689,28 @@ export default function Home({ publications }) {
               </div>
             </div>
             <div style={{ display: "flex" }}>
-              <Link
+              {data.Contact.map((contact, index) => (
+                <button
+                  key={index}
+                  style={{ backgroundColor: BColor }}
+                  className="text-white font-bold py-2 px-4 rounded flex mx-2"
+                  onClick={() => handleLinkClick(contact.link)}
+                >
+                  <AiOutlineLink
+                    size={25}
+                    color="Black"
+                    style={{ marginRight: "5px" }}
+                  />
+                  {contact.name}
+                </button>
+              ))}
+
+              {/* <Link
                 href={data.Contact.Kaggle}
-                // className="underline-link"
               >
                 <button
                   style={{ backgroundColor: BColor }}
-                  class="text-white font-bold py-2 px-4 rounded flex me-2"
+                  className="text-white font-bold py-2 px-4 rounded flex me-2"
                 >
                   <FaKaggle size={25} color="Black"/>
                     Kaggle
@@ -695,7 +719,7 @@ export default function Home({ publications }) {
               <Link href={data.Contact.Leetcode}>
                 <button
                   style={{ backgroundColor: BColor }}
-                  class="text-white font-bold py-2 px-4 rounded flex mx-2"
+                  className="text-white font-bold py-2 px-4 rounded flex mx-2"
                 >
                   <SiLeetcode
                     size={25}
@@ -704,7 +728,7 @@ export default function Home({ publications }) {
                   />
                   Leetcode
                 </button>
-              </Link>
+              </Link> */}
             </div>
           </section>
 
@@ -729,7 +753,7 @@ export default function Home({ publications }) {
           <div className="container relative flex h-full mx-auto">
             {/* Profile Icons */}
             <div className="absolute bottom-0 items-center hidden mt-auto mr-auto text-white left-8 md:flex md:flex-col">
-              <GitHubProfile marginBottom={"mb-4"} />
+              {/* <GitHubProfile marginBottom={"mb-4"} /> */}
               <TwitterProfile marginBottom={"mb-4"} />
               <LinkedInProfile marginBottom={"mb-4"} />
               <div className="w-0.5 dark:bg-white bg-dark h-24 opacity-20 mt-2"></div>
