@@ -11,8 +11,9 @@ import GitHubProfile from "../components/icons/GitHubProfile";
 import TwitterProfile from "../components/icons/TwitterProfile";
 import LinkedInProfile from "../components/icons/LinkedInProfile";
 import FeaturedProjectCard from "../components/FeaturedProjectCard";
-import { FaKaggle } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { AiOutlineLink, AiOutlineMail } from "react-icons/ai";
+import { BiLinkExternal } from "react-icons/bi";
+
 // Blog Components
 // import BlogList from '../components/blog/BlogList';
 // import BlogItem from '../components/blog/BlogItem';
@@ -157,7 +158,10 @@ export default function Home({ publications }) {
       );
     }
   };
-
+  let email = data.Contact.find(item => item.name === "Email")?.link;
+  let LinkedIn = data.Contact.find(item => item.name === "LinkedIn")?.link;
+  let Twitter = data.Contact.find(item => item.name === "Twitter")?.link;
+  let Github = data.Contact.find(item => item.name === "Github")?.link;
   return (
     <div className="bg-white dark:bg-darker transition-all duration-150 ease-in-out">
       <div
@@ -670,41 +674,32 @@ export default function Home({ publications }) {
                 <p className="text-lg">
                   Email me at{" "}
                   <Link
-                    href={`mailto:${data.Contact.Email}`}
+                    href={`mailto:${email}`}
                     className="underline-link"
                   >
-                    {data.Contact.Email}
+                    {email}
                   </Link>
-                  and let&apos;s talk about your project!
+                  {'  and let&apos;s talk about your project!'}
                 </p>
               </div>
             </div>
             <div style={{ display: "flex" }}>
-              <Link
-                href={data.Contact.Kaggle}
-                // className="underline-link"
-              >
+              {data.Contact.map((contact, index) => {
+                console.log(contact.name)
+                return(
+              <a href={contact.name == "Email" ? `mailto:${contact.link}`: `${contact.link}`} key={index} target="_blank" rel="noreferrer">
                 <button
-                  style={{ backgroundColor: BColor }}
-                  class="text-white font-bold py-2 px-4 rounded flex me-2"
+                  key={index}
+                  className={`bg-[${BColor}] hover:text-black dark:hover:text-black dark:text-white text-white font-bold py-2 px-4 rounded flex mx-2`}
                 >
-                  <FaKaggle size={25} color="Black"/>
-                    Kaggle
-                </button>
-              </Link>
-              <Link href={data.Contact.Leetcode}>
-                <button
-                  style={{ backgroundColor: BColor }}
-                  class="text-white font-bold py-2 px-4 rounded flex mx-2"
-                >
-                  <SiLeetcode
+                  <AiOutlineLink
                     size={25}
-                    color="Black"
                     style={{ marginRight: "5px" }}
                   />
-                  Leetcode
+                  {contact.name}
                 </button>
-              </Link>
+                </a>
+              )})}
             </div>
           </section>
 
@@ -729,9 +724,17 @@ export default function Home({ publications }) {
           <div className="container relative flex h-full mx-auto">
             {/* Profile Icons */}
             <div className="absolute bottom-0 items-center hidden mt-auto mr-auto text-white left-8 md:flex md:flex-col">
-              <GitHubProfile marginBottom={"mb-4"} />
-              <TwitterProfile marginBottom={"mb-4"} />
-              <LinkedInProfile marginBottom={"mb-4"} />
+              <a href={ `mailto:${email}`} target="_blank" rel="noreferrer">
+                <button 
+                className="dark:text-white text-dark transition-all duration-300 ease-in-out transform translate-y-0 dark:opacity-50 fill-current dark:hover:opacity-100 hover:-translate-y-1 mb-4">                  
+                  <AiOutlineMail size={24}/>
+                </button>
+              </a>
+              { (!!LinkedIn) ? <LinkedInProfile marginBottom={"mb-4"} url={LinkedIn} /> : console.log("Use LinkedIn keyword")}
+              { (!!Github) ? <GitHubProfile marginBottom={"mb-4"} url={Github} /> : console.log("Use Github keyword")}
+              { (!!Twitter) ? <TwitterProfile marginBottom={"mb-4"} url={Twitter} /> : console.log("Use Twitter keyword")}
+                  
+                
               <div className="w-0.5 dark:bg-white bg-dark h-24 opacity-20 mt-2"></div>
             </div>
           </div>
