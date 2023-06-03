@@ -45,6 +45,7 @@ const scrollTo = (ele) => {
 };
 
 export default function Home({ publications }) {
+  // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
   const [scrolling, setScrolling] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -68,6 +69,8 @@ export default function Home({ publications }) {
   const contactRef = useRef(null);
 
   useEffect(() => {
+    // const thememode = localStorage.getItem('theme');
+    
     const sectionRefs = [
       { section: "home", ref: homeRef, id: 1 },
       { section: "about", ref: aboutRef, id: 2 },
@@ -675,7 +678,7 @@ export default function Home({ publications }) {
                   Email me at{" "}
                   <Link
                     href={`mailto:${email}`}
-                    className="underline-link"
+                    // className="underline-link text"
                   >
                     {email}
                   </Link>
@@ -683,20 +686,22 @@ export default function Home({ publications }) {
                 </p>
               </div>
             </div>
-            <div style={{ display: "flex" }}>
+            <div style={{display:"flex"}}>
               {data.Contact.map((contact, index) => {
                 console.log(contact.name)
                 return(
               <a href={contact.name == "Email" ? `mailto:${contact.link}`: `${contact.link}`} key={index} target="_blank" rel="noreferrer">
                 <button
+                  
                   key={index}
-                  className={`bg-[${BColor}] hover:text-black dark:hover:text-black dark:text-white text-white font-bold py-2 px-4 rounded flex mx-2`}
+                  className={`text-${theme==="light" ?'white': 'black' }} hover:text-${theme==="dark" ?'white': 'black' } font-bold py-2 px-4 rounded flex mx-2`}
                 >
                   <AiOutlineLink
                     size={25}
-                    style={{ marginRight: "5px" }}
+                    color={theme==="dark"? 'white' : 'black'}
+                    style={{marginRight: "5px"}}
                   />
-                  {contact.name}
+                  <p>{contact.name}</p>
                 </button>
                 </a>
               )})}
