@@ -161,10 +161,9 @@ export default function Home({ publications }) {
       );
     }
   };
-  let email = data.Contact.find(item => item.name === "Email")?.link;
-  let LinkedIn = data.Contact.find(item => item.name === "LinkedIn")?.link;
-  let Twitter = data.Contact.find(item => item.name === "Twitter")?.link;
-  let Github = data.Contact.find(item => item.name === "Github")?.link;
+
+  let contacts = data.Contact;
+  let email = contacts['Email'], LinkedIn= contacts['LinkedIn'], Twitter= contacts['Twitter'], Github= contacts['Github'];
   return (
     <div className="bg-white dark:bg-darker transition-all duration-150 ease-in-out">
       <div
@@ -307,7 +306,7 @@ export default function Home({ publications }) {
                 </li>
                 <li className="z-40 block py-2 mt-6 list-none lg:inline-block">
                   <a
-                    href={`mailto:${data.Contact.Email}`}
+                    href={`mailto:${email}`}
                     className={`text-white btn-lg group`}
                     style={{ backgroundColor: BColor }}
                   >
@@ -433,7 +432,7 @@ export default function Home({ publications }) {
                 </li>
                 <li className="z-50 hidden ml-5 list-none lg:inline-block">
                   <a
-                    href={`mailto:${data.Contact.Email}`}
+                    href={`mailto:${email}`}
                     className={`text-lg text-white btn-md group`}
                     style={{ backgroundColor: BColor }}
                   >
@@ -678,7 +677,7 @@ export default function Home({ publications }) {
                   Email me at{" "}
                   <Link
                     href={`mailto:${email}`}
-                    // className="underline-link text"
+                    className="underline-link text"
                   >
                     {email}
                   </Link>
@@ -687,24 +686,25 @@ export default function Home({ publications }) {
               </div>
             </div>
             <div style={{display:"flex"}}>
-              {data.Contact.map((contact, index) => {
-                console.log(contact.name)
+            {Object.keys(contacts).map(function (key) {
+                console.log(key, contacts[key]);
                 return(
-              <a href={contact.name == "Email" ? `mailto:${contact.link}`: `${contact.link}`} key={index} target="_blank" rel="noreferrer">
-                <button
-                  
-                  key={index}
-                  className={`text-${theme==="light" ?'white': 'black' }} hover:text-${theme==="dark" ?'white': 'black' } font-bold py-2 px-4 rounded flex mx-2`}
-                >
-                  <AiOutlineLink
-                    size={25}
-                    color={theme==="dark"? 'white' : 'black'}
-                    style={{marginRight: "5px"}}
-                  />
-                  <p>{contact.name}</p>
-                </button>
-                </a>
-              )})}
+                  <a href={key == "Email" ? `mailto:${contacts[key]}`: `${contacts[key]}`} key={key} target="_blank" rel="noreferrer">
+                    <button
+                      style={{ backgroundColor: BColor }}
+                      key={key}
+                      className={`bg-[${BColor}] hover:text-white dark:hover:text-black dark:text-white text-black font-bold px-2 py-2 rounded mx-2 flex`}
+                      >
+                      <AiOutlineLink
+                        size={25}
+                        style={{marginRight: "5px"}}
+                      />
+                      {key}
+                    </button>
+                    </a>
+                  )
+                })
+            }
             </div>
           </section>
 
