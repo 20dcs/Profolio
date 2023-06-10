@@ -64,30 +64,10 @@
       "DemoLink": ""
     }
   ],
-  "Contact": [
-    {
-      "name": "Email",
-      "link": "johndoe@gmail.com"
-    },
-    {
-      "name": "Github",
-      "link": "https://github.com/johndoe"
-    },
-    {
-      "name": "Twitter",
-      "link": "https://twitter.com/johndoe"
-    },
-    {
-      "name": "LinkedIn",
-      "link": "https://linkedin.com/in/johndoe"
-    },
-    {
-      "name": "Leetcode",
-      "link": "https://leetcode.com/johndoe"
-    },
-    {
-      "name": "Kaggle",
-      "link": "https://www.kaggle.com/johndoe"
-    }
-  ]
+   "Contact": {
+    "Email": "johndoe@gmail.com",
+    "Github": "https://github.com/johndoe",
+    "Twitter": "https://twitter.com/johndoe",
+    "LinkedIn": "https://linkedin.com/johndoe"
+  }
 }
