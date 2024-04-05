@@ -1,6 +1,7 @@
 // import data from "../data.json";
 // const data=JSON.stringify(data.json);
 import React, { useState, useEffect, useRef} from "react";
+import { useRouter } from 'next/router';
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,7 +35,7 @@ const scrollTo = (ele) => {
   });
 };
 
-export default function Home({ publications }) {
+export default function Home({ publications, id="660f9841e15ce679221bc552" }) {
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
@@ -88,7 +89,7 @@ export default function Home({ publications }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://profolio-3e8u.onrender.com/api/userdata/getalljson/660f9841e15ce679221bc552"
+          `https://profolio-3e8u.onrender.com/api/userdata/getalljson/${id}`
         );
         // Assuming your API response is an array
         if (response.data && response.data.length > 0) {
