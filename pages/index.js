@@ -1,29 +1,19 @@
-import data from "../data.json";
+// import data from "../data.json";
 // const data=JSON.stringify(data.json);
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import ReactTypingEffect from "react-typing-effect";
-// Project Card
-// import ProjectCard from '../components/ProjectCard';
+import axios from "axios";
 import GitHubProfile from "../components/icons/GitHubProfile";
 import TwitterProfile from "../components/icons/TwitterProfile";
 import LinkedInProfile from "../components/icons/LinkedInProfile";
 import FeaturedProjectCard from "../components/FeaturedProjectCard";
 import { AiOutlineLink, AiOutlineMail } from "react-icons/ai";
-import { BiLinkExternal } from "react-icons/bi";
-
-// Blog Components
-// import BlogList from '../components/blog/BlogList';
-// import BlogItem from '../components/blog/BlogItem';
-
 // Dark Mode
 import { useTheme } from "next-themes";
 import SkillSection from "../components/SkillSection";
-
-let Color = `${data.Color}`;
-let BColor = `${data.Color}`;
 
 const getDimensions = (ele) => {
   const { height } = ele.getBoundingClientRect();
@@ -45,6 +35,7 @@ const scrollTo = (ele) => {
 };
 
 export default function Home({ publications }) {
+  // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
   const [scrolling, setScrolling] = useState(false);
@@ -52,6 +43,67 @@ export default function Home({ publications }) {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
+  const [data, setData] = useState({
+    Head: {
+      title: "Naitik Patel",
+      NavbarName: "Naitik Patel",
+    },
+    HomePage: {
+      name: "Naitik Patel",
+      Position: ["webdeveloper", "web designer", "tester", " qa"],
+      description: "asdfasdfasdff",
+    },
+    AboutPage: {
+      AboutParagraph: "asdfasdfasdfasdfasdf",
+      ImageLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
+    },
+    _id: "6507ebfce726c5584ab030f5",
+    Color: "#FF5733",
+    Skills: ["Lighting Techniques", "Final Cut Pro", "Creative Writing"],
+    Projects: [
+      {
+        title: "TODO-App",
+        ImageLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
+        Status: "Completed",
+        ProjectName: "TODO-App",
+        Technologies: [
+          "ReactJS",
+          "Adobe Creative Suite",
+          "Lighting Techniques",
+        ],
+        Description: "asdfasdfasd",
+        DemoLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
+        _id: "6507ebfce726c5584ab030f6",
+      },
+    ],
+    Contact: {
+      Email: "naitikpatel2002@gmail.com",
+      instagram: "naitikp_05",
+    },
+  });
+  let Color = `${data.Color}`;
+  let BColor = `${data.Color}`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://profolio-3e8u.onrender.com/api/userdata/getalljson/660f9841e15ce679221bc552"
+        );
+        // Assuming your API response is an array
+        if (response.data && response.data.length > 0) {
+          setData(response.data[0]); // Store the first element in the state variable 'data'
+        } else {
+          console.error("API returned empty array");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  },[]);
+  console.log(data);
 
   const handleResize = () => {
     if (window.innerWidth < 1024) {
@@ -70,7 +122,7 @@ export default function Home({ publications }) {
 
   useEffect(() => {
     // const thememode = localStorage.getItem('theme');
-    
+
     const sectionRefs = [
       { section: "home", ref: homeRef, id: 1 },
       { section: "about", ref: aboutRef, id: 2 },
@@ -113,7 +165,7 @@ export default function Home({ publications }) {
       );
     }
   }, []);
-
+  // console.log(fetchStatus);
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   });
@@ -163,7 +215,10 @@ export default function Home({ publications }) {
   };
 
   let contacts = data.Contact;
-  let email = contacts['Email'], LinkedIn= contacts['LinkedIn'], Twitter= contacts['Twitter'], Github= contacts['Github'];
+  let email = contacts["Email"],
+    LinkedIn = contacts["LinkedIn"],
+    Twitter = contacts["Twitter"],
+    Github = contacts["Github"];
   return (
     <div className="bg-white dark:bg-darker transition-all duration-150 ease-in-out">
       <div
@@ -681,30 +736,35 @@ export default function Home({ publications }) {
                   >
                     {email}
                   </Link>
-                  {'  and let&apos;s talk about your project!'}
+                  {"  and let&apos;s talk about your project!"}
                 </p>
               </div>
             </div>
-            <div style={{display:"flex"}}>
-            {Object.keys(contacts).map(function (key) {
-                console.log(key, contacts[key]);
-                return(
-                  <a href={key == "Email" ? `mailto:${contacts[key]}`: `${contacts[key]}`} key={key} target="_blank" rel="noreferrer">
+            <div style={{ display: "flex" }}>
+              {Object.keys(contacts).map(function (key) {
+                // console.log(key, contacts[key]);
+                return (
+                  <a
+                    href={
+                      key == "Email"
+                        ? `mailto:${contacts[key]}`
+                        : `${contacts[key]}`
+                    }
+                    key={key}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <button
                       style={{ backgroundColor: BColor }}
                       key={key}
                       className={`bg-[${BColor}] hover:text-white dark:hover:text-black dark:text-white text-black font-bold px-2 py-2 rounded mx-2 flex`}
-                      >
-                      <AiOutlineLink
-                        size={25}
-                        style={{marginRight: "5px"}}
-                      />
+                    >
+                      <AiOutlineLink size={25} style={{ marginRight: "5px" }} />
                       {key}
                     </button>
-                    </a>
-                  )
-                })
-            }
+                  </a>
+                );
+              })}
             </div>
           </section>
 
@@ -729,17 +789,27 @@ export default function Home({ publications }) {
           <div className="container relative flex h-full mx-auto">
             {/* Profile Icons */}
             <div className="absolute bottom-0 items-center hidden mt-auto mr-auto text-white left-8 md:flex md:flex-col">
-              <a href={ `mailto:${email}`} target="_blank" rel="noreferrer">
-                <button 
-                className="dark:text-white text-dark transition-all duration-300 ease-in-out transform translate-y-0 dark:opacity-50 fill-current dark:hover:opacity-100 hover:-translate-y-1 mb-4">                  
-                  <AiOutlineMail size={24}/>
+              <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
+                <button className="dark:text-white text-dark transition-all duration-300 ease-in-out transform translate-y-0 dark:opacity-50 fill-current dark:hover:opacity-100 hover:-translate-y-1 mb-4">
+                  <AiOutlineMail size={24} />
                 </button>
               </a>
-              { (!!LinkedIn) ? <LinkedInProfile marginBottom={"mb-4"} url={LinkedIn} /> : console.log("Use LinkedIn keyword")}
-              { (!!Github) ? <GitHubProfile marginBottom={"mb-4"} url={Github} /> : console.log("Use Github keyword")}
-              { (!!Twitter) ? <TwitterProfile marginBottom={"mb-4"} url={Twitter} /> : console.log("Use Twitter keyword")}
-                  
-                
+              {!!LinkedIn ? (
+                <LinkedInProfile marginBottom={"mb-4"} url={LinkedIn} />
+              ) : (
+                console.log("Use LinkedIn keyword")
+              )}
+              {!!Github ? (
+                <GitHubProfile marginBottom={"mb-4"} url={Github} />
+              ) : (
+                console.log("Use Github keyword")
+              )}
+              {!!Twitter ? (
+                <TwitterProfile marginBottom={"mb-4"} url={Twitter} />
+              ) : (
+                console.log("Use Twitter keyword")
+              )}
+
               <div className="w-0.5 dark:bg-white bg-dark h-24 opacity-20 mt-2"></div>
             </div>
           </div>
