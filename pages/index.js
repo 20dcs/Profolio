@@ -35,7 +35,7 @@ const scrollTo = (ele) => {
   });
 };
 
-export default function Home({ publications, id="660f9841e15ce679221bc552" }) {
+export default function Home({ publications, id }) {
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
@@ -45,42 +45,89 @@ export default function Home({ publications, id="660f9841e15ce679221bc552" }) {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [data, setData] = useState({
-    Head: {
-      title: "Naitik Patel",
-      NavbarName: "Naitik Patel",
+    "Head": {
+      "title": "Naitik Patel",
+      "NavbarName": "Naitik Patel"
     },
-    HomePage: {
-      name: "Naitik Patel",
-      Position: ["webdeveloper", "web designer", "tester", " qa"],
-      description: "asdfasdfasdff",
+    "HomePage": {
+      "name": "Naitik Patel",
+      "Position": [
+        "Web Developer",
+        "Web designer",
+        "Tester",
+        "Graphic designer"
+      ],
+      "description": "passionate developer"
     },
-    AboutPage: {
-      AboutParagraph: "asdfasdfasdfasdfasdf",
-      ImageLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
+    "AboutPage": {
+      "AboutParagraph": "I am Naitik Patel, pursuing B.Tech in Computer Science at CHARUSAT University.\n\nAs a web developer, I am responsible for the coding, programming, and designing of websites. I work with my team to create the layout and look of websites. I also help to maintain and improve existing websites. My skills include expertise in MERN stack. I am a motivated and hardworking individual who is always looking to improve my skills. I am a quick learner and I am always willing to take on new challenges. I am a team player and I work well under pressure. I am also comfortable working independently when needed.",
+      "ImageLink": "https://i.postimg.cc/SN93sx28/Whats-App-Image-2022-05-22-at-18-30-02.jpg"
     },
-    _id: "6507ebfce726c5584ab030f5",
-    Color: "#FF5733",
-    Skills: ["Lighting Techniques", "Final Cut Pro", "Creative Writing"],
-    Projects: [
-      {
-        title: "TODO-App",
-        ImageLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
-        Status: "Completed",
-        ProjectName: "TODO-App",
-        Technologies: [
-          "ReactJS",
-          "Adobe Creative Suite",
-          "Lighting Techniques",
-        ],
-        Description: "asdfasdfasd",
-        DemoLink: "https://avatars.githubusercontent.com/u/96243438?v=4",
-        _id: "6507ebfce726c5584ab030f6",
-      },
+    "_id": "660f9bcfe15ce679221bc558",
+    "Color": "#f53a10",
+    "Skills": [
+      "Adobe Creative Suite",
+      "ReactJS",
+      "SEO Optimization",
+      "Email Marketing",
+      "Java",
+      "Javascript",
+      "NodeJS",
+      "HTML",
+      "CSS"
     ],
-    Contact: {
-      Email: "naitikpatel2002@gmail.com",
-      instagram: "naitikp_05",
-    },
+    "Projects": [
+      {
+        "title": "Memes Web App",
+        "ImageLink": "https://naitikpatel.tech/Meme.png",
+        "Status": "Completed",
+        "ProjectName": "Memes Web App",
+        "Technologies": [
+          "ReactJS",
+          "NodeJS",
+          "ExpressJS",
+          "MongoDB"
+        ],
+        "Description": "Introducing 'Memes Web App' a fun and interactive platform I developed where users can easily share and create memes. By signing up, users gain access to a world of laughter, where they can explore a diverse range of memes contributed by the community. The app provides a user-friendly interface for creating personalized memes by entering text into designated fields. With Memes Web App, users can express their creativity and join a vibrant community of meme enthusiasts.",
+        "DemoLink": "https://memeverse.vercel.app/posts",
+        "_id": "660f9bcfe15ce679221bc559"
+      },
+      {
+        "title": "House Marketplace",
+        "ImageLink": "https://naitikpatel.tech/Housemarket.png",
+        "Status": "Completed",
+        "ProjectName": "House Marketplace",
+        "Technologies": [
+          "ReactJS",
+          "CSS",
+          "Firebase"
+        ],
+        "Description": "House Marketplace is a website where users can easily buy, sell, and rent houses. The platform makes it easy for homeowners to list their properties for sale or rent, and for potential buyers or renters to find their dream home. With a wide range of properties available. Discover your next home today on House Marketplace!\n\n",
+        "DemoLink": "https://house-market-place-six-ivory.vercel.app/",
+        "_id": "660f9bcfe15ce679221bc55a"
+      },
+      {
+        "title": "Truth Table Generator",
+        "ImageLink": "https://user-images.githubusercontent.com/36930635/141287110-ce711d51-f9ca-42fd-8a25-f8e037d3c41b.png",
+        "Status": "Completed",
+        "ProjectName": "Truth Table Generator",
+        "Technologies": [
+          "ReactJS",
+          "Chakra Ui"
+        ],
+        "Description": "Get the truth table of any Boolean expression with ease using our truth table generator website. Simply input the expression and our tool will generate the complete truth table for you. Save time and effort with our user-friendly interface and accurate results. Try it out now and simplify your logical reasoning!\n\n",
+        "DemoLink": "https://truth-table-generator-sgp.vercel.app/",
+        "_id": "660f9bcfe15ce679221bc55b"
+      }
+    ],
+    "Contact": {
+      "Email": "naitikpatel2002@gmail.com",
+      "LinkedIn": "https://www.linkedin.com/in/naitik-patel-19567b20a/",
+      "GitHub": "https://github.com/naitikp2002",
+      "LeetCode": "https://leetcode.com/naitikp2002/",
+      "Instagram": "https://www.instagram.com/naitikp_05/",
+      "Twitter": "https://twitter.com/Naitikp06876194"
+    }
   });
   let Color = `${data.Color}`;
   let BColor = `${data.Color}`;
@@ -93,7 +140,7 @@ export default function Home({ publications, id="660f9841e15ce679221bc552" }) {
         );
         // Assuming your API response is an array
         if (response.data && response.data.length > 0) {
-          setData(response.data[0]); // Store the first element in the state variable 'data'
+          setData(response.data[response.data.length - 1]); // Store the first element in the state variable 'data'
         } else {
           console.error("API returned empty array");
         }
@@ -103,7 +150,7 @@ export default function Home({ publications, id="660f9841e15ce679221bc552" }) {
     };
 
     fetchData();
-  },[]);
+  },[id]);
   console.log(data);
 
   const handleResize = () => {
