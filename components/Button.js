@@ -1,8 +1,8 @@
 import React from "react";
 import data from "../data.json"
-const BColor= data.Color;
+// const BColor= data.Color;
 
-const Button = ({ link, text, icon, square }) => {
+const Button = ({BColor,Color, link, text, icon, square }) => {
   return (
     <a href={link} className="text-white" target="_blank" rel="noreferrer">
       <button

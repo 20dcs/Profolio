@@ -697,6 +697,8 @@ export default function Home({ publications, id }) {
                     {i % 2 == 0 ? (
                       <FeaturedProjectCard
                         key={i}
+                        Color={`${data.Color}`}
+                        BColor={`${data.Color}`}
                         title={`${project.title}`}
                         status={`${project.Status}`}
                         description={`${project.Description}`}
@@ -712,6 +714,8 @@ export default function Home({ publications, id }) {
                     ) : (
                       <FeaturedProjectCard
                         key={i}
+                        Color={`${data.Color}`}
+                        BColor={`${data.Color}`}
                         title={`${project.title}`}
                         status={`${project.Status}`}
                         description={`${project.Description}`}
