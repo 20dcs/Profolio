@@ -36,7 +36,7 @@ const scrollTo = (ele) => {
 };
 
 export default function Home({ publications, id }) {
-  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/userdata/getalljson`;
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
@@ -247,9 +247,8 @@ export default function Home({ publications, id }) {
   return (
     <div className="bg-white dark:bg-darker transition-all duration-150 ease-in-out">
       <div
-        className={`relative w-full dark:bg-dark/20 bg-light bg-opacity-10 overflow-auto min-h-screen transition-all duration-150 ease-in-out ${
-          navbarOpen ? "overflow-hidden" : "overflow-auto"
-        }`}
+        className={`relative w-full dark:bg-dark/20 bg-light bg-opacity-10 overflow-auto min-h-screen transition-all duration-150 ease-in-out ${navbarOpen ? "overflow-hidden" : "overflow-auto"
+          }`}
       >
         <Head>
           <title>{data.Head.title} </title>
@@ -277,11 +276,10 @@ export default function Home({ publications, id }) {
 
         {/* Full-screen Menu */}
         <div
-          className={`fixed w-full z-50 h-screen pt-24 bg-white dark:bg-darker bg-opacity-100 transform delay-100 transition-all duration-150 ${
-            navbarOpen
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-full"
-          }`}
+          className={`fixed w-full z-50 h-screen pt-24 bg-white dark:bg-darker bg-opacity-100 transform delay-100 transition-all duration-150 ${navbarOpen
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 -translate-x-full"
+            }`}
         >
           <div className="container relative mx-auto">
             <nav className="block ml-auto">
@@ -289,11 +287,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "home"
-                        ? "selected delay-200"
-                        : "text-mid/50 hover:text-mid border-b-2 border-transparent"
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === "home"
+                      ? "selected delay-200"
+                      : "text-mid/50 hover:text-mid border-b-2 border-transparent"
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(homeRef.current);
@@ -305,11 +302,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "about"
-                        ? "selected delay-150"
-                        : "text-mid/50 hover:text-mid border-b-2 border-transparent"
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === "about"
+                      ? "selected delay-150"
+                      : "text-mid/50 hover:text-mid border-b-2 border-transparent"
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(aboutRef.current);
@@ -321,11 +317,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "skills"
-                        ? "selected delay-150"
-                        : "text-mid/50 hover:text-mid border-b-2 border-transparent"
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === "skills"
+                      ? "selected delay-150"
+                      : "text-mid/50 hover:text-mid border-b-2 border-transparent"
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(skillsRef.current);
@@ -337,11 +332,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "my-work"
-                        ? "selected delay-150"
-                        : "text-mid/50  hover:text-mid border-b-2 border-transparent"
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === "my-work"
+                      ? "selected delay-150"
+                      : "text-mid/50  hover:text-mid border-b-2 border-transparent"
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(myWorkRef.current);
@@ -371,11 +365,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 block py-2 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "contact"
-                        ? "selected delay-150"
-                        : "text-mid/50 hover:text-mid border-b-2 border-transparent"
-                    }`}
+                    className={`header_link text-xl font-semibold transition-all duration-150 ease-in-out ${visibleSection === "contact"
+                      ? "selected delay-150"
+                      : "text-mid/50 hover:text-mid border-b-2 border-transparent"
+                      }`}
                     onClick={() => {
                       setNavbarOpen(false);
                       scrollTo(contactRef.current);
@@ -400,11 +393,10 @@ export default function Home({ publications, id }) {
 
         {/* Header and Nav */}
         <header
-          className={`header top-0 mx-auto flex items-center py-6 z-50 fixed w-full transition-all duration-150 h-20 ${
-            scrolling && !navbarOpen
-              ? "dark:bg-dark bg-white"
-              : "bg-transparent"
-          }`}
+          className={`header top-0 mx-auto flex items-center py-6 z-50 fixed w-full transition-all duration-150 h-20 ${scrolling && !navbarOpen
+            ? "dark:bg-dark bg-white"
+            : "bg-transparent"
+            }`}
           ref={headerRef}
         >
           {/* Logo and Nav container */}
@@ -421,11 +413,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "home"
-                        ? "selected delay-150"
-                        : "opacity-50 hover:opacity-100 dark:text-white text-dark"
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === "home"
+                      ? "selected delay-150"
+                      : "opacity-50 hover:opacity-100 dark:text-white text-dark"
+                      }`}
                     onClick={() => {
                       scrollTo(homeRef.current);
                     }}
@@ -436,11 +427,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "about"
-                        ? "selected delay-150"
-                        : "opacity-50 hover:opacity-100 border-b-2 border-transparent  dark:text-white text-dark"
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === "about"
+                      ? "selected delay-150"
+                      : "opacity-50 hover:opacity-100 border-b-2 border-transparent  dark:text-white text-dark"
+                      }`}
                     onClick={() => {
                       scrollTo(aboutRef.current);
                     }}
@@ -451,11 +441,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "skills"
-                        ? "selected delay-150"
-                        : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === "skills"
+                      ? "selected delay-150"
+                      : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
+                      }`}
                     onClick={() => {
                       scrollTo(skillsRef.current);
                     }}
@@ -466,11 +455,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "my-work"
-                        ? "selected delay-150"
-                        : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === "my-work"
+                      ? "selected delay-150"
+                      : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
+                      }`}
                     onClick={() => {
                       scrollTo(myWorkRef.current);
                     }}
@@ -498,11 +486,10 @@ export default function Home({ publications, id }) {
                 <li className="z-50 hidden mx-5 list-none lg:inline-block">
                   <button
                     href="#"
-                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${
-                      visibleSection === "contact"
-                        ? "selected delay-150"
-                        : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
-                    }`}
+                    className={`header_link font-semibold transition-all duration-150 ease-in-out ${visibleSection === "contact"
+                      ? "selected delay-150"
+                      : "opacity-50 hover:opacity-100 border-b-2 border-transparent dark:text-white text-dark"
+                      }`}
                     onClick={() => {
                       scrollTo(contactRef.current);
                     }}
@@ -521,31 +508,27 @@ export default function Home({ publications, id }) {
                 </li>
                 <li className="z-50 inline-block ml-5 list-none lg:hidden">
                   <button
-                    className={`relative w-10 h-10 text-dark/50 dark:text-white ${
-                      navbarOpen
-                        ? ""
-                        : "dark:opacity-50 dark:group-hover:opacity-100 text-mid/50 group-hover:text-dark"
-                    } focus:outline-none`}
+                    className={`relative w-10 h-10 text-dark/50 dark:text-white ${navbarOpen
+                      ? ""
+                      : "dark:opacity-50 dark:group-hover:opacity-100 text-mid/50 group-hover:text-dark"
+                      } focus:outline-none`}
                     onClick={() => setNavbarOpen(!navbarOpen)}
                   >
                     <div className="absolute block w-5 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2">
                       <span
                         aria-hidden="true"
-                        className={`block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? "rotate-45" : "-translate-y-1.5"
-                        }`}
+                        className={`block absolute h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? "rotate-45" : "-translate-y-1.5"
+                          }`}
                       ></span>
                       <span
                         aria-hidden="true"
-                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? "opacity-0" : "opacity-100"
-                        }`}
+                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? "opacity-0" : "opacity-100"
+                          }`}
                       ></span>
                       <span
                         aria-hidden="true"
-                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${
-                          navbarOpen ? "-rotate-45" : "translate-y-1.5"
-                        }`}
+                        className={`block absolute  h-0.5 w-5 bg-current transform transition duration-200 ease-in-out ${navbarOpen ? "-rotate-45" : "translate-y-1.5"
+                          }`}
                       ></span>
                     </div>
                   </button>
