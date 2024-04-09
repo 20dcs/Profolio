@@ -1,29 +1,20 @@
-import data from "../data.json";
+// import data from "../data.json";
 // const data=JSON.stringify(data.json);
 import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import ReactTypingEffect from "react-typing-effect";
-// Project Card
-// import ProjectCard from '../components/ProjectCard';
+import axios from "axios";
 import GitHubProfile from "../components/icons/GitHubProfile";
 import TwitterProfile from "../components/icons/TwitterProfile";
 import LinkedInProfile from "../components/icons/LinkedInProfile";
 import FeaturedProjectCard from "../components/FeaturedProjectCard";
 import { AiOutlineLink, AiOutlineMail } from "react-icons/ai";
-import { BiLinkExternal } from "react-icons/bi";
-
-// Blog Components
-// import BlogList from '../components/blog/BlogList';
-// import BlogItem from '../components/blog/BlogItem';
-
 // Dark Mode
 import { useTheme } from "next-themes";
 import SkillSection from "../components/SkillSection";
-
-let Color = `${data.Color}`;
-let BColor = `${data.Color}`;
 
 const getDimensions = (ele) => {
   const { height } = ele.getBoundingClientRect();
@@ -44,7 +35,9 @@ const scrollTo = (ele) => {
   });
 };
 
-export default function Home({ publications }) {
+export default function Home({ publications, id }) {
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
+  // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
   const [scrolling, setScrolling] = useState(false);
@@ -52,6 +45,90 @@ export default function Home({ publications }) {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
+  const [data, setData] = useState({
+    Color: "#ff5733",
+    Head: {
+      title: "Jhon Doe | Frontend Developer & Designer",
+      NavbarName: "Jhon Doe",
+    },
+    HomePage: {
+      name: "Jhon Doe",
+      Position: ["Position 1", "Position 2", "Position 3", "Position 4"],
+      description: "I design and build websites that look good, and work well.",
+    },
+    AboutPage: {
+      AboutParagraph:
+        "I am a frontend developer and designer with a passion for creating beautiful and user-friendly websites and applications. I have a strong background in both web development and graphic design, and I enjoy using my skills to create stunning websites and interfaces that are easy to use and navigate.In my previous work, I have designed and developed websites for a variety of clients, including small businesses, non-profit organizations, and large corporations. I have also created mobile applications and responsive websites that are compatible with a variety of devices and screen sizes. My goal is always to create websites and applications that are visually appealing and user-friendly, and I believe that my skills and experience make me an excellent frontend developer and designer.",
+      ImageLink:
+        "https://cdn.vectorstock.com/i/1000x1000/23/81/default-avatar-profile-icon-vector-18942381.webp",
+    },
+    Skills: [
+      "Lighting Techniques",
+      "Final Cut Pro",
+      "Persuasion Techniques",
+      "Agile Methodology",
+      "Adobe Creative Suite",
+    ],
+    Projects: [
+      {
+        title: "Project Title1",
+        ImageLink: "",
+        Status: "Completed",
+        ProjectName: "Project Title1",
+        Technologies: ["ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "/",
+      },
+      {
+        title: "Project Title2",
+        ImageLink: "",
+        Status: "Working On it",
+        ProjectName: "Project Title2",
+        Technologies: ["Lighting Techniques", "ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "",
+      },
+      {
+        title: "Project Title3",
+        ImageLink: "",
+        Status: "Completed",
+        ProjectName: "Project Title3",
+        Technologies: ["ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "",
+      },
+    ],
+    Contact: {
+      Email: "johndoe@gmail.com",
+      Github: "https://github.com/johndoe",
+      Twitter: "https://twitter.com/johndoe",
+      LinkedIn: "https://linkedin.com/johndoe",
+    },
+  });
+  let Color = `${data.Color}`;
+  let BColor = `${data.Color}`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${url}/${id}`);
+        // Assuming your API response is an array
+        if (response.data && response.data.length > 0) {
+          setData(response.data[response.data.length - 1]); // Store the first element in the state variable 'data'
+        } else {
+          console.error("API returned empty array");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+  console.log(data);
 
   const handleResize = () => {
     if (window.innerWidth < 1024) {
@@ -70,7 +147,7 @@ export default function Home({ publications }) {
 
   useEffect(() => {
     // const thememode = localStorage.getItem('theme');
-    
+
     const sectionRefs = [
       { section: "home", ref: homeRef, id: 1 },
       { section: "about", ref: aboutRef, id: 2 },
@@ -113,7 +190,7 @@ export default function Home({ publications }) {
       );
     }
   }, []);
-
+  // console.log(fetchStatus);
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   });
@@ -163,7 +240,10 @@ export default function Home({ publications }) {
   };
 
   let contacts = data.Contact;
-  let email = contacts['Email'], LinkedIn= contacts['LinkedIn'], Twitter= contacts['Twitter'], Github= contacts['Github'];
+  let email = contacts["Email"],
+    LinkedIn = contacts["LinkedIn"],
+    Twitter = contacts["Twitter"],
+    Github = contacts["Github"];
   return (
     <div className="bg-white dark:bg-darker transition-all duration-150 ease-in-out">
       <div
@@ -594,6 +674,8 @@ export default function Home({ publications }) {
                     {i % 2 == 0 ? (
                       <FeaturedProjectCard
                         key={i}
+                        Color={`${data.Color}`}
+                        BColor={`${data.Color}`}
                         title={`${project.title}`}
                         status={`${project.Status}`}
                         description={`${project.Description}`}
@@ -609,6 +691,8 @@ export default function Home({ publications }) {
                     ) : (
                       <FeaturedProjectCard
                         key={i}
+                        Color={`${data.Color}`}
+                        BColor={`${data.Color}`}
                         title={`${project.title}`}
                         status={`${project.Status}`}
                         description={`${project.Description}`}
@@ -681,30 +765,35 @@ export default function Home({ publications }) {
                   >
                     {email}
                   </Link>
-                  {'  and let&apos;s talk about your project!'}
+                  {"  and let&apos;s talk about your project!"}
                 </p>
               </div>
             </div>
-            <div style={{display:"flex"}}>
-            {Object.keys(contacts).map(function (key) {
-                console.log(key, contacts[key]);
-                return(
-                  <a href={key == "Email" ? `mailto:${contacts[key]}`: `${contacts[key]}`} key={key} target="_blank" rel="noreferrer">
+            <div style={{ display: "flex" }}>
+              {Object.keys(contacts).map(function (key) {
+                // console.log(key, contacts[key]);
+                return (
+                  <a
+                    href={
+                      key == "Email"
+                        ? `mailto:${contacts[key]}`
+                        : `${contacts[key]}`
+                    }
+                    key={key}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <button
                       style={{ backgroundColor: BColor }}
                       key={key}
                       className={`bg-[${BColor}] hover:text-white dark:hover:text-black dark:text-white text-black font-bold px-2 py-2 rounded mx-2 flex`}
-                      >
-                      <AiOutlineLink
-                        size={25}
-                        style={{marginRight: "5px"}}
-                      />
+                    >
+                      <AiOutlineLink size={25} style={{ marginRight: "5px" }} />
                       {key}
                     </button>
-                    </a>
-                  )
-                })
-            }
+                  </a>
+                );
+              })}
             </div>
           </section>
 
@@ -729,17 +818,27 @@ export default function Home({ publications }) {
           <div className="container relative flex h-full mx-auto">
             {/* Profile Icons */}
             <div className="absolute bottom-0 items-center hidden mt-auto mr-auto text-white left-8 md:flex md:flex-col">
-              <a href={ `mailto:${email}`} target="_blank" rel="noreferrer">
-                <button 
-                className="dark:text-white text-dark transition-all duration-300 ease-in-out transform translate-y-0 dark:opacity-50 fill-current dark:hover:opacity-100 hover:-translate-y-1 mb-4">                  
-                  <AiOutlineMail size={24}/>
+              <a href={`mailto:${email}`} target="_blank" rel="noreferrer">
+                <button className="dark:text-white text-dark transition-all duration-300 ease-in-out transform translate-y-0 dark:opacity-50 fill-current dark:hover:opacity-100 hover:-translate-y-1 mb-4">
+                  <AiOutlineMail size={24} />
                 </button>
               </a>
-              { (!!LinkedIn) ? <LinkedInProfile marginBottom={"mb-4"} url={LinkedIn} /> : console.log("Use LinkedIn keyword")}
-              { (!!Github) ? <GitHubProfile marginBottom={"mb-4"} url={Github} /> : console.log("Use Github keyword")}
-              { (!!Twitter) ? <TwitterProfile marginBottom={"mb-4"} url={Twitter} /> : console.log("Use Twitter keyword")}
-                  
-                
+              {!!LinkedIn ? (
+                <LinkedInProfile marginBottom={"mb-4"} url={LinkedIn} />
+              ) : (
+                console.log("Use LinkedIn keyword")
+              )}
+              {!!Github ? (
+                <GitHubProfile marginBottom={"mb-4"} url={Github} />
+              ) : (
+                console.log("Use Github keyword")
+              )}
+              {!!Twitter ? (
+                <TwitterProfile marginBottom={"mb-4"} url={Twitter} />
+              ) : (
+                console.log("Use Twitter keyword")
+              )}
+
               <div className="w-0.5 dark:bg-white bg-dark h-24 opacity-20 mt-2"></div>
             </div>
           </div>
