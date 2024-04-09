@@ -1,7 +1,7 @@
 // import data from "../data.json";
 // const data=JSON.stringify(data.json);
-import React, { useState, useEffect, useRef} from "react";
-import { useRouter } from 'next/router';
+import React, { useState, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,6 +36,7 @@ const scrollTo = (ele) => {
 };
 
 export default function Home({ publications, id }) {
+  const url = process.env.NEXT_PUBLIC_BACKEND_URL;
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   const [visibleSection, setVisibleSection] = useState();
@@ -45,89 +46,67 @@ export default function Home({ publications, id }) {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [data, setData] = useState({
-    "Head": {
-      "title": "Naitik Patel",
-      "NavbarName": "Naitik Patel"
+    Color: "#ff5733",
+    Head: {
+      title: "Jhon Doe | Frontend Developer & Designer",
+      NavbarName: "Jhon Doe",
     },
-    "HomePage": {
-      "name": "Naitik Patel",
-      "Position": [
-        "Web Developer",
-        "Web designer",
-        "Tester",
-        "Graphic designer"
-      ],
-      "description": "passionate developer"
+    HomePage: {
+      name: "Jhon Doe",
+      Position: ["Position 1", "Position 2", "Position 3", "Position 4"],
+      description: "I design and build websites that look good, and work well.",
     },
-    "AboutPage": {
-      "AboutParagraph": "I am Naitik Patel, pursuing B.Tech in Computer Science at CHARUSAT University.\n\nAs a web developer, I am responsible for the coding, programming, and designing of websites. I work with my team to create the layout and look of websites. I also help to maintain and improve existing websites. My skills include expertise in MERN stack. I am a motivated and hardworking individual who is always looking to improve my skills. I am a quick learner and I am always willing to take on new challenges. I am a team player and I work well under pressure. I am also comfortable working independently when needed.",
-      "ImageLink": "https://i.postimg.cc/SN93sx28/Whats-App-Image-2022-05-22-at-18-30-02.jpg"
+    AboutPage: {
+      AboutParagraph:
+        "I am a frontend developer and designer with a passion for creating beautiful and user-friendly websites and applications. I have a strong background in both web development and graphic design, and I enjoy using my skills to create stunning websites and interfaces that are easy to use and navigate.In my previous work, I have designed and developed websites for a variety of clients, including small businesses, non-profit organizations, and large corporations. I have also created mobile applications and responsive websites that are compatible with a variety of devices and screen sizes. My goal is always to create websites and applications that are visually appealing and user-friendly, and I believe that my skills and experience make me an excellent frontend developer and designer.",
+      ImageLink:
+        "https://cdn.vectorstock.com/i/1000x1000/23/81/default-avatar-profile-icon-vector-18942381.webp",
     },
-    "_id": "660f9bcfe15ce679221bc558",
-    "Color": "#f53a10",
-    "Skills": [
+    Skills: [
+      "Lighting Techniques",
+      "Final Cut Pro",
+      "Persuasion Techniques",
+      "Agile Methodology",
       "Adobe Creative Suite",
-      "ReactJS",
-      "SEO Optimization",
-      "Email Marketing",
-      "Java",
-      "Javascript",
-      "NodeJS",
-      "HTML",
-      "CSS"
     ],
-    "Projects": [
+    Projects: [
       {
-        "title": "Memes Web App",
-        "ImageLink": "https://naitikpatel.tech/Meme.png",
-        "Status": "Completed",
-        "ProjectName": "Memes Web App",
-        "Technologies": [
-          "ReactJS",
-          "NodeJS",
-          "ExpressJS",
-          "MongoDB"
-        ],
-        "Description": "Introducing 'Memes Web App' a fun and interactive platform I developed where users can easily share and create memes. By signing up, users gain access to a world of laughter, where they can explore a diverse range of memes contributed by the community. The app provides a user-friendly interface for creating personalized memes by entering text into designated fields. With Memes Web App, users can express their creativity and join a vibrant community of meme enthusiasts.",
-        "DemoLink": "https://memeverse.vercel.app/posts",
-        "_id": "660f9bcfe15ce679221bc559"
+        title: "Project Title1",
+        ImageLink: "",
+        Status: "Completed",
+        ProjectName: "Project Title1",
+        Technologies: ["ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "/",
       },
       {
-        "title": "House Marketplace",
-        "ImageLink": "https://naitikpatel.tech/Housemarket.png",
-        "Status": "Completed",
-        "ProjectName": "House Marketplace",
-        "Technologies": [
-          "ReactJS",
-          "CSS",
-          "Firebase"
-        ],
-        "Description": "House Marketplace is a website where users can easily buy, sell, and rent houses. The platform makes it easy for homeowners to list their properties for sale or rent, and for potential buyers or renters to find their dream home. With a wide range of properties available. Discover your next home today on House Marketplace!\n\n",
-        "DemoLink": "https://house-market-place-six-ivory.vercel.app/",
-        "_id": "660f9bcfe15ce679221bc55a"
+        title: "Project Title2",
+        ImageLink: "",
+        Status: "Working On it",
+        ProjectName: "Project Title2",
+        Technologies: ["Lighting Techniques", "ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "",
       },
       {
-        "title": "Truth Table Generator",
-        "ImageLink": "https://user-images.githubusercontent.com/36930635/141287110-ce711d51-f9ca-42fd-8a25-f8e037d3c41b.png",
-        "Status": "Completed",
-        "ProjectName": "Truth Table Generator",
-        "Technologies": [
-          "ReactJS",
-          "Chakra Ui"
-        ],
-        "Description": "Get the truth table of any Boolean expression with ease using our truth table generator website. Simply input the expression and our tool will generate the complete truth table for you. Save time and effort with our user-friendly interface and accurate results. Try it out now and simplify your logical reasoning!\n\n",
-        "DemoLink": "https://truth-table-generator-sgp.vercel.app/",
-        "_id": "660f9bcfe15ce679221bc55b"
-      }
+        title: "Project Title3",
+        ImageLink: "",
+        Status: "Completed",
+        ProjectName: "Project Title3",
+        Technologies: ["ReactJS", "Creative Writing"],
+        Description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad recusandae eum, perspiciatis amet corrupti at? Voluptates ipsum, doloribus in repudiandae nemo a? Unde accusamus pariatur repudiandae similique. Quod, veniam aliquid! Project Description 1 ",
+        DemoLink: "",
+      },
     ],
-    "Contact": {
-      "Email": "naitikpatel2002@gmail.com",
-      "LinkedIn": "https://www.linkedin.com/in/naitik-patel-19567b20a/",
-      "GitHub": "https://github.com/naitikp2002",
-      "LeetCode": "https://leetcode.com/naitikp2002/",
-      "Instagram": "https://www.instagram.com/naitikp_05/",
-      "Twitter": "https://twitter.com/Naitikp06876194"
-    }
+    Contact: {
+      Email: "johndoe@gmail.com",
+      Github: "https://github.com/johndoe",
+      Twitter: "https://twitter.com/johndoe",
+      LinkedIn: "https://linkedin.com/johndoe",
+    },
   });
   let Color = `${data.Color}`;
   let BColor = `${data.Color}`;
@@ -135,9 +114,7 @@ export default function Home({ publications, id }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://profolio-3e8u.onrender.com/api/userdata/getalljson/${id}`
-        );
+        const response = await axios.get(`${url}/${id}`);
         // Assuming your API response is an array
         if (response.data && response.data.length > 0) {
           setData(response.data[response.data.length - 1]); // Store the first element in the state variable 'data'
@@ -150,7 +127,7 @@ export default function Home({ publications, id }) {
     };
 
     fetchData();
-  },[id]);
+  }, [id]);
   console.log(data);
 
   const handleResize = () => {
