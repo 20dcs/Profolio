@@ -4,11 +4,11 @@ import Home from '.';
 
 const DynamicIdPage = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { username } = router.query;
 
   return (
     <div>
-      <Home id={id}/>
+      <Home username={username}/>
     </div>
   );
 };
