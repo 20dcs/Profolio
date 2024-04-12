@@ -44,8 +44,8 @@ const scrollTo = (ele) => {
 };
 
 export default function Home({ publications, username }) {
-  // const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/userdata/getalljson`;
-  const url="http://localhost:5000/api"
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
+  // const url="http://localhost:5000/api"
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
   
@@ -146,7 +146,7 @@ export default function Home({ publications, username }) {
     if (userId) {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`${url}/${userId}`);
+          const response = await axios.get(`${url}/userdata/getalljson/${userId}`);
           if (response.data && response.data.length > 0) {
             setData(response.data[response.data.length - 1]);
           } else {
@@ -161,26 +161,6 @@ export default function Home({ publications, username }) {
       fetchData();
     }
   }, [url, userId]);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(`${url}/${username}`);
-  //       // Assuming your API response is an array
-  //       if (response.data && response.data.length > 0) {
-  //         setData(response.data[response.data.length - 1]); // Store the first element in the state variable 'data'
-  //       } else {
-  //         console.error('API returned empty array');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //     // data fetch complete
-  //     setDataFetched(true);
-  //   };
-
-  //   fetchData();
-  // }, [username]);
-  // console.log(data);
 
   const handleResize = () => {
     if (window.innerWidth < 1024) {
