@@ -43,10 +43,12 @@ const scrollTo = (ele) => {
   });
 };
 
-export default function Home({ publications, id }) {
-  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/userdata/getalljson`;
+export default function Home({ publications, username }) {
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api`;
+  // const url="http://localhost:5000/api"
   // const [fetchStatus, setFetchStatus] = useState('');
   // const thememode = localStorage.getItem('theme');
+  
   const [visibleSection, setVisibleSection] = useState();
   const [scrolling, setScrolling] = useState(false);
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -54,6 +56,7 @@ export default function Home({ publications, id }) {
   const [mounted, setMounted] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
   const [dataFetched, setDataFetched] = useState(false);
+  const [userId, setUserId] = useState(null);
   const [data, setData] = useState({
     Color: '#ff5733',
     Head: {
@@ -121,25 +124,43 @@ export default function Home({ publications, id }) {
   let BColor = `${data.Color}`;
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUserId = async () => {
       try {
-        const response = await axios.get(`${url}/${id}`);
-        // Assuming your API response is an array
-        if (response.data && response.data.length > 0) {
-          setData(response.data[response.data.length - 1]); // Store the first element in the state variable 'data'
+        const response = await axios.get(`${url}/auth/getuserid/${username}`);
+        if (response.data) {
+          setUserId(response.data); // Set the user ID in state
         } else {
-          console.error('API returned empty array');
+          console.error('User not found');
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching user ID:', error);
       }
-      // data fetch complete
-      setDataFetched(true);
     };
 
-    fetchData();
-  }, [id]);
-  console.log(data);
+    if (username) {
+      fetchUserId();
+    }
+  }, [url, username]);
+
+  useEffect(() => {
+    if (userId) {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(`${url}/userdata/getalljson/${userId}`);
+          if (response.data && response.data.length > 0) {
+            setData(response.data[response.data.length - 1]);
+          } else {
+            console.error('API returned empty array');
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+        setDataFetched(true);
+      };
+
+      fetchData();
+    }
+  }, [url, userId]);
 
   const handleResize = () => {
     if (window.innerWidth < 1024) {
